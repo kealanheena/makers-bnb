@@ -1,5 +1,12 @@
 # Makers BNB
 
+
+## Table of contents
+- [MVP](#mvp)
+- [User Stories](#user-stories)
+- [Domain Modelling](#domain-modelling)
+- [Database Structure](#database-structure)
+
 ## MVP
 
 As a user  

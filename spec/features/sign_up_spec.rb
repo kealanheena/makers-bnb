@@ -1,5 +1,6 @@
 feature "Sign up" do
   scenario "a new user can sign up" do
+    clear_database
     visit "/"
     fill_in "Username", with: "JDTest"
     fill_in "Email", with: "jd@test.com"

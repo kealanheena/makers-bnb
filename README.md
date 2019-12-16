@@ -42,11 +42,11 @@ I want to be able to book a space
 
 **Table: Spaces**   
 
-| id | name | description | price_per_night | created_at | user_id |
-| -- | ------- | ---------- | ------- | ----- | ----- |
-| 1 | Buckingham Palace | A warm, cozy and small cottage in London | £10,000.50 | 2019-12-08 21:02:55.919516 | 1 |
-| 2 | V&A Museum | Filled with light and portraits | £360.00 | 2019-12-08 21:02:55.919516 | 2 |
-| 3 | Tent in field with mines | For the adrenaline junkies | £5.00 | 2019-12-08 21:02:55.919516 | 2 |  
+| id | name | description | price_per_night | created_at | user_id | dates_available
+| -- | ------- | ---------- | ------- | ----- | ----- | ---- |
+| 1 | Buckingham Palace | A warm, cozy and small cottage in London | £10,000.50 | 2019-12-08 21:02:55.919516 | 1 | 2019-12-24, 2019-12-25 |
+| 2 | V&A Museum | Filled with light and portraits | £360.00 | 2019-12-08 21:02:55.919516 | 2 | 2019-12-24, 2019-12-25 |
+| 3 | Tent in field with mines | For the adrenaline junkies | £5.00 | 2019-12-08 21:02:55.919516 | 2 |  2019-12-24, 2019-12-25 |
 
 **Table: Bookings**  
 

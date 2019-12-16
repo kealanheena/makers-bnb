@@ -5,7 +5,7 @@
 - [MVP](#mvp)
 - [User Stories](#user-stories)
 - [Domain Modelling](#domain-modelling)
-- [Database Structure](#database-structure)
+- [Database Structures](#database-structures)
 
 ## MVP
 

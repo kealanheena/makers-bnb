@@ -26,9 +26,9 @@ I want to be able to book a space
 
 ## Domain Modelling
 
-| User |Booking | Space |
+| User |Booking | Rental |
 | --- | --- | --- |
-| @email | @space | @name |
+| @email | @rental | @name |
 | @password | @dates |  @description |
 | @username | @client | @price_per_night |
 | --------- | -------- | -------- |
@@ -47,7 +47,7 @@ I want to be able to book a space
 | 1 | Debbie Handler | debbie@test.com | dkfg14   | 2019-12-08 21:02:31.579223 |
 | 2 | Joan Peeler | jojo@test.com   | j450pl   | 2019-12-08 21:02:31.579223 |  
 
-**Table: Spaces**   
+**Table: Rentals**   
 
 | id | name | description | price_per_night | created_at | user_id | dates_available
 | -- | ------- | ---------- | ------- | ----- | ----- | ---- |
@@ -57,7 +57,7 @@ I want to be able to book a space
 
 **Table: Bookings**  
 
-| id | space_id | user_id (booker) | dates | created_at |
+| id | rental_id | user_id (booker) | dates | created_at |
 | -- | ------- | ---------- | ------- | ------ |
 | 1 | 1 | 1 | 2019-12-24 |  2019-12-08 21:02:55.919516 |
 | 2 | 2 | 3 | 2020-02-19 | 2019-12-08 21:02:55.919516 |

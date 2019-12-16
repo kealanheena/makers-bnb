@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/rental.rb'
 
 class MakersBnB < Sinatra::Base 
 
@@ -7,6 +8,7 @@ class MakersBnB < Sinatra::Base
   end
   
   get '/rentals' do
+    @list = Rental.all
     erb :rentals
   end
 

@@ -1,4 +1,5 @@
 <ul>
-  <li>Place 1</li>
-  <li>Place 2</li>
+<% @list.each do |rental| %>
+  <li><%= rental.name %></li>
+<% end %>
 </ul>

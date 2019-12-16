@@ -6,6 +6,9 @@
 - [User Stories](#user-stories)
 - [Domain Modelling](#domain-modelling)
 - [Database Structures](#database-structures)
+- [Getting started](#getting-started)
+- [Database setup](#database-setup)
+- [Test database setup](#test-database-setup)
 
 ## MVP
 
@@ -62,3 +65,24 @@ I want to be able to book a space
 | 1 | 1 | 1 | 2019-12-24 |  2019-12-08 21:02:55.919516 |
 | 2 | 2 | 3 | 2020-02-19 | 2019-12-08 21:02:55.919516 |
 | 3 | 2 | 2 | 2020-08-01 | 2019-12-08 21:02:55.919516 |  
+
+## Getting started
+
+Run the below in the terminal in your makers-bnb directory:
+- To install all necessary gems, run ```bundle```
+- To open in web browser run ```ruby app.rb```
+- Open http://localhost:4567/
+
+## Database setup
+
+- Connect to ```psql```
+- Create the database using the ```psql``` command ```CREATE DATABASE bnb;```  
+- Connect to the database using the ```psql``` command ```\c bnb;```  
+- Run all the queries we have saved in the folder ```db\migrations\```  
+
+## Test database setup
+
+- Connect to ```psql```
+- Create the database using the ```psql``` command ```CREATE DATABASE bnb_test;```  
+- Connect to the database using the ```psql``` command ```\c bnb_test;```  
+- Run all the queries we have saved in the folder ```db\migrations\```  

@@ -8,6 +8,8 @@ attr_reader :username
     @username = username
     @email = email
     @password = password
+    @id = id
+    @created_at = created_at
   end
 
     def self.sign_up(username:, email:, password:)

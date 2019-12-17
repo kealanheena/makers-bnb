@@ -1,23 +1,44 @@
 require 'sinatra/base'
 require './lib/rental.rb'
+require './lib/user.rb'
 
 class MakersBnB < Sinatra::Base
 
   enable :sessions
 
   get "/" do
+    @user = session[:user]
     @list = Rental.all
     erb :index, { :layout => :layout }
   end
 
-  post "/" do
-    session[:user] = User.sign_up(username: params["Username"], email: params["Email"], password: params["Password"])
-    redirect "/makers-bnb"
+  get "/sign_up" do
+    erb :sign_up
   end
 
-  get "/makers-bnb" do
-    @user = session[:user]
-    erb :makers_bnb, { :layout => :layout }
+  post "/sign_up" do
+    session[:user] = User.sign_up(username: params["Username"], email: params["Email"], password: params["Password"])
+    redirect "/"
+  end
+
+
+  get "/log_in" do
+    erb :log_in
+  end
+
+  post "/log_in" do
+    session[:user] = User.log_in(email: params["Email"], password: params["Password"])
+    redirect "/"
+  end
+
+  post "/log_out" do
+    session.clear
+    redirect '/'
+  end
+
+  get '/rentals' do
+    @list = Rental.all
+    erb :rentals
   end
 
   get '/new' do
@@ -27,7 +48,6 @@ class MakersBnB < Sinatra::Base
   post '/new' do
     Rental.add(params[:name], params[:description], params[:price])
     redirect '/'
-
   end
 
   run! if app_file == $0

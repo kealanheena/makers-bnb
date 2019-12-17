@@ -36,10 +36,10 @@ class MakersBnB < Sinatra::Base
     redirect '/'
   end
 
-  get '/rentals' do
-    @list = Rental.all
-    erb :rentals
-  end
+  # get '/rentals' do
+  #   @list = Rental.all
+  #   erb :rentals
+  # end
 
   get '/new' do
     erb :new, { :layout => :layout }
@@ -59,7 +59,7 @@ class MakersBnB < Sinatra::Base
     erb :rental
   end
 
- 
+
 
   run! if app_file == $0
 

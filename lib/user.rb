@@ -13,11 +13,7 @@ attr_reader :username
   end
 
     def self.sign_up(username:, email:, password:)
-      if ENV['RACK_ENV'] == 'test'
-        @connection = PG.connect(dbname: 'bnb_test')
-      else
-        @connection = PG.connect(dbname: "bnb")
-      end
+      database_selector
 
       result = @connection.exec("INSERT INTO users(username, email, password)
         VALUES('#{username}', '#{email}', '#{password}')
@@ -26,4 +22,24 @@ attr_reader :username
       User.new(username: result[0]["username"], email: result[0]["email"], password: result[0]["password"], id: result[0]["id"], created_at: result[0]["created_at"])
     end
 
+    def self.authenticate(email:, password:)
+      database_selector
+
+      result = @connection.exec("SELECT * FROM users WHERE email='#{email}'
+        AND password='#{password}';")
+      raise "Incorrect login details" unless result.any?
+
+      User.new(username: result[0]["username"], email: result[0]["email"], password: result[0]["password"], id: result[0]["id"], created_at: result[0]["created_at"])
+
+
+    end
+
+
+    def self.database_selector
+      if ENV['ENVIRONMENT'] = 'test'
+        @connection = PG.connect(dbname: 'bnb_test')
+      else
+        @connection = PG.connect(dbname: 'bnb')
+      end
+    end
 end

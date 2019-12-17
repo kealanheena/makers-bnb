@@ -17,7 +17,7 @@
 
     <ul>
       <% @list.each do |rental| %>
-        <li>Name: <%= rental.name %></li>
+        <li>Name: <a href='/rental/<%= rental.id %>' method='post' ><%= rental.name %></a></li>
         <li>Description: <%= rental.description %></li>
         <li>Price Per Night: £<%= rental.price %></li><br>
       <% end %>

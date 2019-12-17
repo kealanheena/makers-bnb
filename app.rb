@@ -50,6 +50,17 @@ class MakersBnB < Sinatra::Base
     redirect '/'
   end
 
+  get '/rental/confirmation' do
+    erb :confirmation
+  end
+
+  get '/rental/:id' do
+    @rental = Rental.rental_details(params[:id])
+    erb :rental
+  end
+
+ 
+
   run! if app_file == $0
 
 end

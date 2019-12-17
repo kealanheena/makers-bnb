@@ -1,5 +1,6 @@
 # Makers BNB
 
+This is the first Makers team project, working together to build an AirBnB clone. Helping us develop teamwork skills, project management and technical skills.
 
 ## Table of contents
 - [User Stories](#user-stories)

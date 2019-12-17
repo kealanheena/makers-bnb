@@ -29,7 +29,7 @@ class MakersBnB < Sinatra::Base
     redirect "/"
   end
 
-  post "/" do
+  post "/log_out" do
     session.clear
     redirect '/'
   end

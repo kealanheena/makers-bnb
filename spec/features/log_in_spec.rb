@@ -8,7 +8,8 @@ feature "log in" do
     fill_in "Password", with: "por85g"
     click_on "Sign Up"
 
-    visit current_path
+    click_on "Log Out"
+
     click_link "Log In"
     fill_in "Email", with: "jd@test.com"
     fill_in "Password", with: "por85g"

@@ -12,7 +12,7 @@
 
     <% if @user %>
       Welcome <%=@user.username%>!
-      <form action="/" method="post"><br>
+      <form action="/log_out" method="post"><br>
         <input type="submit" value="Log Out">
       </form>
     <% else %>

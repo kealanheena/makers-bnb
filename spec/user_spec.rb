@@ -23,11 +23,11 @@ describe "User" do
 
     context "fails to log in if user is not recognized" do
       it "fails if wrong email" do
-        expect{User.authenticate(email: "jc@taste.com", password: "por85g" )}.to raise_error("Incorrect login details")
+        expect(User.authenticate(email: "jc@taste.com", password: "por85g" )).not_to be true
       end
 
       it "fails if wrong password" do
-        expect{User.authenticate(email: "jd@test.com", password: "proc85g" )}.to raise_error("Incorrect login details")
+        expect(User.authenticate(email: "jd@test.com", password: "proc85g" )).not_to be true
       end
 
     end

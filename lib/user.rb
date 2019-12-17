@@ -27,13 +27,11 @@ attr_reader :username
 
       result = @connection.exec("SELECT * FROM users WHERE email='#{email}'
         AND password='#{password}';")
-      raise "Incorrect login details" unless result.any?
+      return false unless result.any?
 
       User.new(username: result[0]["username"], email: result[0]["email"], password: result[0]["password"], id: result[0]["id"], created_at: result[0]["created_at"])
 
-
     end
-
 
     def self.database_selector
       if ENV['ENVIRONMENT'] = 'test'

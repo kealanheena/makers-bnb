@@ -23,12 +23,18 @@ class MakersBnB < Sinatra::Base
 
 
   get "/log_in" do
+    @error = session[:error]
     erb :log_in
   end
 
   post "/log_in" do
-    session[:user] = User.log_in(email: params["Email"], password: params["Password"])
-    redirect "/"
+    session[:user] = User.authenticate(email: params["Email"], password: params["Password"])
+    if session[:user]
+      redirect "/"
+    else
+      session[:error] = true
+      redirect "/log_in"
+    end
   end
 
   post "/log_out" do

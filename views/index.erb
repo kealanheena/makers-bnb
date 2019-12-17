@@ -12,12 +12,13 @@
 
     <% if @user %>
       Welcome <%=@user.username%>!
+      <form action="/" method="post"><br>
+        <input type="submit" value="Log Out">
+      </form>
     <% else %>
       <a href='/sign_up'>Sign Up</a> <br>
-      <a href='/log_in'>Log In</a>
+      <a href='/log_in'>Log In</a><br>
     <% end %>
-
-
 
     <a href='/rentals'>See Rentals</a>
 

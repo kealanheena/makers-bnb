@@ -29,6 +29,11 @@ class MakersBnB < Sinatra::Base
     redirect "/"
   end
 
+  post "/" do
+    session.clear
+    redirect '/'
+  end
+
   get '/rentals' do
     @list = Rental.all
     erb :rentals

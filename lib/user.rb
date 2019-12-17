@@ -22,7 +22,7 @@ attr_reader :username
       result = @connection.exec("INSERT INTO users(username, email, password)
         VALUES('#{username}', '#{email}', '#{password}')
         RETURNING username, email, password, id, created_at;")
-        p result[0]
+
       User.new(username: result[0]["username"], email: result[0]["email"], password: result[0]["password"], id: result[0]["id"], created_at: result[0]["created_at"])
     end
 

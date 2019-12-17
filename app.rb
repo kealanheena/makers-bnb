@@ -20,6 +20,15 @@ class MakersBnB < Sinatra::Base
     redirect "/"
   end
 
+  get "/log_in" do
+    erb :log_in
+  end
+
+  post "/log_in" do
+    session[:user] = User.log_in(email: params["Email"], password: params["Password"])
+    redirect "/"
+  end
+
   get '/rentals' do
     @list = Rental.all
     erb :rentals

@@ -8,7 +8,8 @@ class MakersBnB < Sinatra::Base
 
   get "/" do
     @user = session[:user]
-    erb :index
+    @list = Rental.all
+    erb :index, { :layout => :layout }
   end
 
   get "/sign_up" do
@@ -19,6 +20,7 @@ class MakersBnB < Sinatra::Base
     session[:user] = User.sign_up(username: params["Username"], email: params["Email"], password: params["Password"])
     redirect "/"
   end
+
 
   get "/log_in" do
     erb :log_in
@@ -37,6 +39,15 @@ class MakersBnB < Sinatra::Base
   get '/rentals' do
     @list = Rental.all
     erb :rentals
+  end
+
+  get '/new' do
+    erb :new, { :layout => :layout }
+  end
+
+  post '/new' do
+    Rental.add(params[:name], params[:description], params[:price])
+    redirect '/'
   end
 
   run! if app_file == $0

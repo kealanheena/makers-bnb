@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -9,8 +7,8 @@
   </head>
   <body>
     <h1>Makers BnB</h1>
+    <a href='/new'>Add Rental</a>
 
-<a href='/rentals'>See Rentals</a>
     <form class="sign-up" action="/" method="post">
       Username:
       <input type="text" placeholder="Username" name="Username" required><br>
@@ -20,6 +18,14 @@
       <input type="password" placeholder="Password" name="Password" minlength="8" required><br>
       <input type="submit" value="Sign Up">
     </form>
+
+    <ul>
+      <% @list.each do |rental| %>
+        <li>Name: <%= rental.name %></li>
+        <li>Description: <%= rental.description %></li>
+        <li>Price Per Night: £<%= rental.price %></li><br>
+      <% end %>
+    </ul>
   </body>
 </html>
 

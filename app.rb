@@ -6,6 +6,7 @@ class MakersBnB < Sinatra::Base
   enable :sessions
 
   get "/" do
+    @list = Rental.all
     erb :index
   end
 
@@ -19,13 +20,13 @@ class MakersBnB < Sinatra::Base
     erb :makers_bnb
   end
 
-  get '/' do
-    erb :index
+  get '/new' do
+    erb :new
   end
-  
-  get '/rentals' do
-    @list = Rental.all
-    erb :rentals
+
+  post '/new' do
+    Rental.add(params[:name], params[:description], params[:price])
+    redirect '/'
   end
 
   run! if app_file == $0

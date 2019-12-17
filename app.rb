@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/rental.rb'
 
 class MakersBnB < Sinatra::Base
 
@@ -16,6 +17,15 @@ class MakersBnB < Sinatra::Base
   get "/makers-bnb" do
     @user = session[:user]
     erb :makers_bnb
+  end
+
+  get '/' do
+    erb :index
+  end
+  
+  get '/rentals' do
+    @list = Rental.all
+    erb :rentals
   end
 
   run! if app_file == $0

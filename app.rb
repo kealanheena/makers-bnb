@@ -3,15 +3,33 @@ require './lib/rental.rb'
 
 class MakersBnB < Sinatra::Base
 
-  get '/' do
+  enable :sessions
+
+  get "/" do
+    @list = Rental.all
     erb :index, { :layout => :layout }
   end
-  
-  get '/rentals' do
-    @list = Rental.all
-    erb :rentals, { :layout => :layout }
+
+  post "/" do
+    session[:user] = User.sign_up(username: params["Username"], email: params["Email"], password: params["Password"])
+    redirect "/makers-bnb"
+  end
+
+  get "/makers-bnb" do
+    @user = session[:user]
+    erb :makers_bnb, { :layout => :layout }
+  end
+
+  get '/new' do
+    erb :new, { :layout => :layout }
+  end
+
+  post '/new' do
+    Rental.add(params[:name], params[:description], params[:price])
+    redirect '/'
+
   end
 
   run! if app_file == $0
-  
+
 end

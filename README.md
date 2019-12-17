@@ -101,11 +101,11 @@ I want the booking to be available until I confirm a booking request
 
 **Table: Rentals**   
 
-| id | name | description | price_per_night | created_at | user_id | dates_available
+| id | name | description | price_per_night | created_at | user_id | 
 | -- | ------- | ---------- | ------- | ----- | ----- | ---- |
-| 1 | Buckingham Palace | A warm, cozy and small cottage in London | £10,000.50 | 2019-12-08 21:02:55.919516 | 1 | 2019-12-24, 2019-12-25 |
-| 2 | V&A Museum | Filled with light and portraits | £360.00 | 2019-12-08 21:02:55.919516 | 2 | 2019-12-24, 2019-12-25 |
-| 3 | Tent in field with mines | For the adrenaline junkies | £5.00 | 2019-12-08 21:02:55.919516 | 2 |  2019-12-24, 2019-12-25 |
+| 1 | Buckingham Palace | A warm, cozy and small cottage in London | £10,000.50 | 2019-12-08 21:02:55.919516 | 1 |
+| 2 | V&A Museum | Filled with light and portraits | £360.00 | 2019-12-08 21:02:55.919516 | 2 |
+| 3 | Tent in field with mines | For the adrenaline junkies | £5.00 | 2019-12-08 21:02:55.919516 | 2 |
 
 **Table: Bookings**  
 
@@ -114,6 +114,14 @@ I want the booking to be available until I confirm a booking request
 | 1 | 1 | 1 | 2019-12-24 |  2019-12-08 21:02:55.919516 |
 | 2 | 2 | 3 | 2020-02-19 | 2019-12-08 21:02:55.919516 |
 | 3 | 2 | 2 | 2020-08-01 | 2019-12-08 21:02:55.919516 |  
+
+**Table: Dates**
+
+| id | dates_available | rental_id |
+| -- | ------- | ---- |
+| 1 | 2019-12-24 | 1 |
+| 2 | 2020-02-19 | 3 |
+| 3 | 2020-08-01 | 2 |
 
 ## Features  
 - Sign up

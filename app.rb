@@ -7,7 +7,7 @@ class MakersBnB < Sinatra::Base
 
   get "/" do
     @list = Rental.all
-    erb :index
+    erb :index, { :layout => :layout }
   end
 
   post "/" do
@@ -17,16 +17,17 @@ class MakersBnB < Sinatra::Base
 
   get "/makers-bnb" do
     @user = session[:user]
-    erb :makers_bnb
+    erb :makers_bnb, { :layout => :layout }
   end
 
   get '/new' do
-    erb :new
+    erb :new, { :layout => :layout }
   end
 
   post '/new' do
     Rental.add(params[:name], params[:description], params[:price])
     redirect '/'
+
   end
 
   run! if app_file == $0

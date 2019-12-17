@@ -8,7 +8,7 @@ class Rental
   end
 
   def self.all
-    connection = PG.connect(dbname: 'makers_bnb')
+    connection = PG.connect(dbname: 'bnb')
     result = connection.exec('SELECT * FROM rentals;')
 
     result.map {|dwelling|

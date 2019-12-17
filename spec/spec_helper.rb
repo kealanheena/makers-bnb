@@ -23,8 +23,8 @@ RSpec.configure do |config|
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
   config.before(:each) do
-    connection = PG.connect(dbname: 'makers_bnb_test')
-    connection.exec("TRUNCATE TABLE rentals;")
+    connection = PG.connect(dbname: 'bnb_test')
+    connection.exec("TRUNCATE TABLE rentals, users;")
   end
 
 end

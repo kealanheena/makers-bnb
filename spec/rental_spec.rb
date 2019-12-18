@@ -21,4 +21,12 @@ describe Rental do
     end
   end
 
+  describe "#check_date" do
+    it 'should check if a date is available' do
+      add_users_to_database
+      add_rentals
+      id = Rental.all[0].id
+      expect(Rental.check_date(id, '2020-05-18')).to eq 'Date available!'
+    end
+  end
 end

@@ -8,7 +8,7 @@ feature "log in" do
     click_link "Log In"
     fill_in "Email", with: "jd@test.com"
     fill_in "Password", with: "por85g"
-    click_on "Log In"
+    click_on "Sign In"
     expect(page).to have_content "Welcome JDTest!"
   end
 
@@ -19,7 +19,7 @@ feature "log in" do
     click_link "Log In"
     fill_in "Email", with: "jc@test.com"
     fill_in "Password", with: "por85g"
-    click_on "Log In"
+    click_on "Sign In"
     expect(page).to have_content "Incorrect login details, please try again!"
   end
 
@@ -30,7 +30,7 @@ feature "log in" do
     click_link "Log In"
     fill_in "Email", with: "jd@test.com"
     fill_in "Password", with: "proc85g"
-    click_on "Log In"
+    click_on "Sign In"
     expect(page).to have_content "Incorrect login details, please try again!"
   end
 

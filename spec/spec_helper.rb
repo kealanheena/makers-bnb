@@ -1,11 +1,10 @@
 require 'database_helpers'
-
+require_relative './web_helpers.rb'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-require_relative './web_helpers.rb'
 
 Capybara.app = MakersBnB
 

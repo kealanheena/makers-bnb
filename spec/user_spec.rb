@@ -3,7 +3,7 @@ require 'user'
 describe "User" do
 
   before do
-    @user = sign_up_user
+    @user = User.sign_up(username: "JDTest", email: "jd@test.com", password: "por85g")
   end
 
   describe ".sign_up" do

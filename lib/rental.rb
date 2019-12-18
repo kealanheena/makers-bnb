@@ -59,4 +59,5 @@ class Rental
       @connection = PG.connect(dbname: 'bnb')
     end
   end
+
 end

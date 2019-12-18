@@ -11,6 +11,13 @@ describe Rental do
       starting: '2020-06-18', ending: '2020-07-20', username: 'JDTest')
   end
 
+  describe ".all" do
+    it "should return an array of rental instances" do
+      expect(Rental.all.length).to eq(2)
+      expect(Rental.all[0]).to be_an_instance_of(Rental)
+    end
+  end
+
   describe ".add" do
     it "should add a rental to the database" do
       expect(Rental.all.length).to eq(2)
@@ -18,10 +25,10 @@ describe Rental do
     end
   end
 
-  describe ".all" do
-    it "should return an array of rental instances" do
-      expect(Rental.all.length).to eq(2)
-      expect(Rental.all[0]).to be_an_instance_of(Rental)
+  describe ".rental_details" do
+    it "should show the details of a rental" do
+      id = Rental.all[0].id
+      expect(Rental.rental_details(id: id)).to be_an_instance_of(Rental)
     end
   end
 

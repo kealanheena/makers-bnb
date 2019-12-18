@@ -18,7 +18,9 @@ class MakersBnB < Sinatra::Base
   end
 
   post "/sign_up" do
-    session[:user] = User.sign_up(username: params["Username"], email: params["Email"], password: params["Password"])
+    session[:user] = User.sign_up(username: params["Username"],
+      email: params["Email"], password: params["Password"])
+
     if session[:user] == :email_clash
       session[:error] = :email_clash
       session[:user].clear
@@ -39,7 +41,9 @@ class MakersBnB < Sinatra::Base
   end
 
   post "/log_in" do
-    session[:user] = User.authenticate(email: params["Email"], password: params["Password"])
+    session[:user] = User.authenticate(email: params["Email"],
+      password: params["Password"])
+
     if session[:user]
       redirect "/"
     else
@@ -58,8 +62,9 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/new' do
-    Rental.add(params[:name], params[:description], params[:price],
-      params[:starting], params[:ending], session[:user].username)
+    Rental.add(name: params[:name], description: params[:description],
+      price: params[:price], starting: params[:starting],
+      ending: params[:ending], username: session[:user].username)
     redirect '/'
   end
 
@@ -68,13 +73,13 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/rental/:id' do
-    @rental = Rental.rental_details(params[:id])
+    @rental = Rental.rental_details(id: params[:id])
     @date_available = session[:date]
     erb :rental
   end
 
   post '/rental/:id' do
-    session[:date] = Rental.check_date(params[:id], params[:date])
+    session[:date] = Rental.check_date(id: params[:id], date: params[:date])
     redirect "/rental/#{params[:id]}"
   end
 

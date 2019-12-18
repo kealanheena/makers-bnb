@@ -1,20 +1,14 @@
 require "rental"
 require "pg"
-require_relative './web_helpers.rb'
 
 describe Rental do
 
   before do
     add_users_to_database
-    Rental.add('Place 1', 'nice place', '20', '2020-05-16', '2020-06-18', 'JDTest')
-    Rental.add('Place 2', 'great place', '30', '2020-06-18', '2020-07-20', 'JDTest')
-  end
-
-  describe ".all" do
-    it "should return an array of rental instances" do
-      expect(Rental.all.length).to eq(2)
-      expect(Rental.all[0]).to be_an_instance_of(Rental)
-    end
+    Rental.add(name: 'Place 1', description: 'nice place', price: '20',
+      starting: '2020-05-16', ending: '2020-06-18', username: 'JDTest')
+    Rental.add(name: 'Place 2', description: 'great place', price: '30',
+      starting: '2020-06-18', ending: '2020-07-20', username: 'JDTest')
   end
 
   describe ".add" do
@@ -24,10 +18,22 @@ describe Rental do
     end
   end
 
+  describe ".all" do
+    it "should return an array of rental instances" do
+      expect(Rental.all.length).to eq(2)
+      expect(Rental.all[0]).to be_an_instance_of(Rental)
+    end
+  end
+
   describe ".check_date" do
-    it 'should check if a date is available' do
+    it 'should return that date is available if it is' do
       id = Rental.all[0].id
-      expect(Rental.check_date(id, '2020-05-18')).to eq 'Date available!'
+      expect(Rental.check_date(id: id, date: '2020-05-18')).to eq 'Date available!'
+    end
+
+    it "should return that date is not available if it isn't" do
+      id = Rental.all[0].id
+      expect(Rental.check_date(id: id, date: '2020-07-18')).to eq 'Not available'
     end
   end
 end

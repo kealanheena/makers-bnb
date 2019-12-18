@@ -13,12 +13,23 @@ class MakersBnB < Sinatra::Base
   end
 
   get "/sign_up" do
+    @error = session[:error]
     erb :sign_up
   end
 
   post "/sign_up" do
     session[:user] = User.sign_up(username: params["Username"], email: params["Email"], password: params["Password"])
-    redirect "/"
+    if session[:user] == "Email already exists"
+      session[:error] = "Email already exists"
+      session[:user].clear
+      redirect "/sign_up"
+    elsif session[:user] == "Username already exists"
+      session[:error] = "Username already exists"
+      session[:user].clear
+      redirect "/sign_up"
+    else
+      redirect "/"
+    end
   end
 
 

@@ -18,6 +18,9 @@ attr_reader :username
 
       database_selector
 
+      return "Email already exists" unless email_exists?(email: email)
+      return "Username already exists" unless username_exists?(username: username)
+
       result = @connection.exec("INSERT INTO users(username, email, password)
         VALUES('#{username}', '#{email}', '#{encrypted_password}')
         RETURNING username, email, password, id, created_at;")
@@ -34,8 +37,10 @@ attr_reader :username
       return false unless BCrypt::Password.new(result[0]["password"]) == password
 
       User.new(username: result[0]["username"], email: result[0]["email"], password: result[0]["password"], id: result[0]["id"], created_at: result[0]["created_at"])
-
     end
+
+
+    private
 
     def self.database_selector
 
@@ -45,4 +50,19 @@ attr_reader :username
         @connection = PG.connect(dbname: 'bnb')
       end
     end
+
+    def self.email_exists?(email:)
+      database_selector
+
+      result = @connection.exec("SELECT id FROM users WHERE email='#{email}';")
+      return true unless result.any?
+    end
+
+    def self.username_exists?(username:)
+      database_selector
+
+      result = @connection.exec("SELECT id FROM users WHERE username='#{username}';")
+      return true unless result.any?
+    end
+
 end

@@ -1,13 +1,10 @@
 <h1>Makers BnB</h1>
-<a href='/new'>Add Rental</a>
-
-    <a href='/rentals'>See Rentals</a>
-
-
-    <ul>
-      <% @list.each do |rental| %>
-        <li>Name: <a href='/rental/<%= rental.id %>' method='post' ><%= rental.name %></a></li>
-        <li>Description: <%= rental.description %></li>
-        <li>Price Per Night: £<%= rental.price %></li><br>
-      <% end %>
-    </ul>
+<a href='/new' class="btn btn-primary">Add Rental</a>
+<a href='/rentals' class="btn btn-primary">See Rentals</a>
+<ul>
+  <% @list.each do |rental| %>
+    <li>Name: <a href='/rental/<%= rental.id %>' method='post' ><%= rental.name %></a></li>
+    <li>Description: <%= rental.description %></li>
+    <li>Price Per Night: £<%= rental.price %></li><br>
+  <% end %>
+</ul>

@@ -87,7 +87,7 @@ I want the booking to be available until I confirm a booking request
 | .sign_up |(.calculate_price) | .set_dates |
 | .log_in | .show_request | self.all |
 | .log_out | .confirm_booking | self.create |
-| .see_requests | | .request(date) |
+| .see_requests | .add_booking | .request(date) |
 |  | | .check(date) |
 
 ## Database Structures
@@ -102,18 +102,18 @@ I want the booking to be available until I confirm a booking request
 **Table: Rentals**   
 
 | id | name | description | price_per_night | created_at | user_id | 
-| -- | ------- | ---------- | ------- | ----- | ----- | ---- |
+| -- | ------- | ---------- | ------- | ----- | ----- |
 | 1 | Buckingham Palace | A warm, cozy and small cottage in London | £10,000.50 | 2019-12-08 21:02:55.919516 | 1 |
 | 2 | V&A Museum | Filled with light and portraits | £360.00 | 2019-12-08 21:02:55.919516 | 2 |
 | 3 | Tent in field with mines | For the adrenaline junkies | £5.00 | 2019-12-08 21:02:55.919516 | 2 |
 
 **Table: Bookings**  
 
-| id | rental_id | user_id (booker) | dates | created_at |
-| -- | ------- | ---------- | ------- | ------ |
-| 1 | 1 | 1 | 2019-12-24 |  2019-12-08 21:02:55.919516 |
-| 2 | 2 | 3 | 2020-02-19 | 2019-12-08 21:02:55.919516 |
-| 3 | 2 | 2 | 2020-08-01 | 2019-12-08 21:02:55.919516 |  
+| id | rental_id | user_id (booker) | dates | created_at | status(default: pending) |
+| -- | ------- | ---------- | ------- | ------ | ------ |
+| 1 | 1 | 1 | 2019-12-24 |  2019-12-08 21:02:55.919516 | pending |
+| 2 | 2 | 3 | 2020-02-19 | 2019-12-08 21:02:55.919516 | approved |
+| 3 | 2 | 2 | 2020-08-01 | 2019-12-08 21:02:55.919516 |  rejected |
 
 **Table: Dates**
 

@@ -6,6 +6,12 @@
   </head>
   <body>
     <h1>SIGN UP</h1>
+    <% if @error == "Email already exists"%>
+      <p> Email already has an account, please try again. </p>
+    <% elsif @error == "Username already exists" %>
+      <p> This username is already taken, please choose another one. </p>
+    <%end%>
+
     <form class="sign-up" action="/sign_up" method="post">
       Username:
       <input type="text" placeholder="Username" name="Username" required><br>

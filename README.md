@@ -106,9 +106,9 @@ I want the booking to be available until I confirm a booking request
 
 | id | name | description | price(£) | created_at | start_date | end_date | user_id |
 | -- | ------- | ----- | ---- | ----- | ----- | ---- | --- |
-| 1 | Buckingham Palace | A warm, cozy and small cottage in London | 10000.50 | 2019-12-08 21:02:55.919516 | 2020-01-01 |  2020-02-30 | 1 |
-| 2 | V&A Museum | Filled with light and portraits | 360.00 | 2019-12-08 21:02:55.919516 | 2020-03-01 |  2020-04-15 | 2 |
-| 3 | Tent in field with mines | For the adrenaline junkies | 5.00 | 2019-12-08 21:02:55.919516 | 2020-01-02 | 2020-12-10 | 2 |
+| 1 | Buckingham Palace | A warm, cozy and small cottage in London | 10000.50 | 2019-12-08 21:02:55.919516 | 2020-01-01 00:00:00.000000 |  2020-02-30 00:00:00.000000 | 1 |
+| 2 | V&A Museum | Filled with light and portraits | 360.00 | 2019-12-08 21:02:55.919516 | 2020-03-01 00:00:00.000000 |  2020-04-15 00:00:00.000000 | 2 |
+| 3 | Tent in field with mines | For the adrenaline junkies | 5.00 | 2019-12-08 21:02:55.919516 | 2020-01-02 00:00:00.000000 | 2020-12-10 00:00:00.000000 | 2 |
 
 **Table: Bookings**  
 

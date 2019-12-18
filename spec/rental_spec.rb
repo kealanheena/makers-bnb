@@ -1,5 +1,6 @@
 require "rental"
 require "pg"
+require_relative './web_helpers.rb'
 
 describe Rental do
   describe "#all" do
@@ -13,7 +14,7 @@ describe Rental do
   describe "#add" do
     it "should add a rental to the database" do
       add_rentals
-      expect(Rental.all.length).to eq(1)
+      expect(Rental.all.length).to eq(2)
       expect(Rental.all[0].name).to eq 'Place 1'
     end
   end

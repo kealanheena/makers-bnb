@@ -56,11 +56,15 @@ class MakersBnB < Sinatra::Base
 
   get '/rental/:id' do
     @rental = Rental.rental_details(params[:id])
+    # p @rental.id
+    @date_available = session[:date]
+    # p @date_available
     erb :rental
   end
 
   post '/rental/:id' do
-    Rental.check_date(params[:id], params[:date])
+    p params
+    session[:date] = Rental.check_date(params[:id], params[:date])
     redirect '/rental/:id'
   end
 

@@ -1,6 +1,6 @@
 def add_rentals
-  Rental.add('Place 1', 'nice place', '20', 1)
-  Rental.add('Place 2', 'great place', '30', 1)
+  Rental.add('Place 1', 'nice place', '20', 'JDTest')
+  Rental.add('Place 2', 'great place', '30', 'JDTest')
 end
 
 def add_rental_feature

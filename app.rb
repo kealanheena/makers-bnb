@@ -63,8 +63,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/new' do
-    rt = Rental.add(params[:name], params[:description], params[:price], session[:user].id)
-    p rt
+    Rental.add(params[:name], params[:description], params[:price], session[:user].username)
     redirect '/'
   end
 

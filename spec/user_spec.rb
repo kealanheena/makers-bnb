@@ -3,8 +3,7 @@ require 'user'
 describe "User" do
 
   before do
-    clear_database
-    @jd = User.sign_up(username: "JDTest", email: "jd@test.com", password: "por85g")
+    @jd = sign_up_test
   end
 
   describe ".sign_up" do

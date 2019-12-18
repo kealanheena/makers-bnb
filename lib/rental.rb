@@ -24,9 +24,9 @@ class Rental
   def self.add(name, description, price, username)
     database_selector
 
-    result = @connection.exec("SELECT id FROM users WHERE username = '#{username}';")
+    result = @connection.exec("SELECT * FROM users WHERE username = '#{username}';")
+    user_id = result[0]["id"]
 
-    p result[id]
     @connection.exec("INSERT INTO rentals(name, description, price, user_id)
     VALUES('#{name}', '#{description}', '#{price}', '#{user_id}');")
 

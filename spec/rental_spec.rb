@@ -5,6 +5,7 @@ require_relative './web_helpers.rb'
 describe Rental do
   describe "#all" do
     it "should return an array of rental instances" do
+      add_users_to_database
       add_rentals
       expect(Rental.all.length).to eq(2)
       expect(Rental.all[0]).to be_an_instance_of(Rental)
@@ -13,9 +14,11 @@ describe Rental do
 
   describe "#add" do
     it "should add a rental to the database" do
+      add_users_to_database
       add_rentals
       expect(Rental.all.length).to eq(2)
       expect(Rental.all[0].name).to eq 'Place 1'
     end
   end
+
 end

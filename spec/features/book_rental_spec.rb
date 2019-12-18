@@ -3,7 +3,6 @@ require_relative '../web_helpers.rb'
 feature "booking" do
 
   scenario "can book a rental" do
-        clear_database
         sign_up_test
         add_rentals
 

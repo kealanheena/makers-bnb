@@ -1,6 +1,6 @@
 # Makers BNB
 
-This is the first Makers team project, working together to build an AirBnB clone. Helping us develop teamwork skills, project management and technical skills.
+This is the first Makers team project, working together to build an AirBnB clone. Helping us develop teamwork, project management and technical skills.
 
 ## Table of contents
 - [User Stories](#user-stories)
@@ -57,16 +57,16 @@ So I can stay at a rental for a night
 I want to make a booking request for that rental  
 
 As a user  
+So I know my booking has been successful  
+I want to see a notification of approval  
+
+As a user  
 So I can view all requests for my rental  
 I want to see booking requests  
 
 As a user  
 So I can feel safe about renting out my space  
 I want to be able to approve booking requests  
-
-As a user  
-So I know my booking has been successful  
-I want to see a notification of approval  
 
 As a user  
 To prevent double-bookings on my rental  
@@ -80,51 +80,55 @@ I want the booking to be available until I confirm a booking request
 
 | User |Booking | Rental |
 | --- | --- | --- |
-| @email | @rental | @name |
-| @password | @dates |  @description |
-| @username | @client | @price_per_night |
+| @email | @rental_id | @name |
+| @password | @date |  @description |
+| @username | @client_id (booker) | @price_per_night |
+| @id | @id | @id |
+| | | @starting_date |
+| | | @ending_date |
+| | | @user_id (owner of rental) |
 | --------- | -------- | -------- |
-| .sign_up |(.calculate_price) | .set_dates |
-| .log_in | .show_request | self.all |
-| .log_out | .confirm_booking | self.create |
-| .see_requests | .add_booking | .request(date) |
-|  | | .check(date) |
+| self.sign_up | self.create | self.all |
+| self.authenticate | self.made | self.add |
+| | self.received | self.check_date |
+| | self.update_status | |
 
 ## Database Structures
 
 **Table: Users**
 
-| user_id | username | email | password | created_at |
+| id | username | email | password | created_at |
 | ----- | --------- | ----- | -------- | ---------- |
-| 1 | Debbie Handler | debbie@test.com | dkfg14   | 2019-12-08 21:02:31.579223 |
-| 2 | Joan Peeler | jojo@test.com   | j450pl   | 2019-12-08 21:02:31.579223 |  
+| 1 | Debbie Handler | debbie@test.com | dkfg14 | 2019-12-08 21:02:31.579223 |
+| 2 | Joan Peeler | jojo@test.com | j450pl | 2019-12-08 21:02:31.579223 |  
 
 **Table: Rentals**   
 
-| id | name | description | price_per_night | created_at | user_id | 
-| -- | ------- | ---------- | ------- | ----- | ----- |
-| 1 | Buckingham Palace | A warm, cozy and small cottage in London | £10,000.50 | 2019-12-08 21:02:55.919516 | 1 |
-| 2 | V&A Museum | Filled with light and portraits | £360.00 | 2019-12-08 21:02:55.919516 | 2 |
-| 3 | Tent in field with mines | For the adrenaline junkies | £5.00 | 2019-12-08 21:02:55.919516 | 2 |
+| id | name | description | price(£) | created_at | start_date | end_date | user_id |
+| -- | ------- | ----- | ---- | ----- | ----- | ---- | --- |
+| 1 | Buckingham Palace | A warm, cozy and small cottage in London | 10000.50 | 2019-12-08 21:02:55.919516 | 2020-01-01 |  2020-02-30 | 1 |
+| 2 | V&A Museum | Filled with light and portraits | 360.00 | 2019-12-08 21:02:55.919516 | 2020-03-01 |  2020-04-15 | 2 |
+| 3 | Tent in field with mines | For the adrenaline junkies | 5.00 | 2019-12-08 21:02:55.919516 | 2020-01-02 | 2020-12-10 | 2 |
 
 **Table: Bookings**  
 
-| id | rental_id | user_id (booker) | dates | created_at | status(default: pending) |
-| -- | ------- | ---------- | ------- | ------ | ------ |
-| 1 | 1 | 1 | 2019-12-24 |  2019-12-08 21:02:55.919516 | pending |
+| id | rental_id | client_id | date | created_at | status(default: pending) |
+| --- | ----- | ------ | ------- | ------ | ------ |
+| 1 | 1 | 1 | 2019-12-24 | 2019-12-08 21:02:55.919516 | pending |
 | 2 | 2 | 3 | 2020-02-19 | 2019-12-08 21:02:55.919516 | approved |
-| 3 | 2 | 2 | 2020-08-01 | 2019-12-08 21:02:55.919516 |  rejected |
+| 3 | 2 | 2 | 2020-08-01 | 2019-12-08 21:02:55.919516 | rejected |
 
-**Table: Dates**
-
-| id | dates_available | rental_id |
-| -- | ------- | ---- |
-| 1 | 2019-12-24 | 1 |
-| 2 | 2020-02-19 | 3 |
-| 3 | 2020-08-01 | 2 |
 
 ## Features  
 - Sign up
+- Log in
+- Log out
+- Add rental
+- Book rental (by date)
+- See bookings you've made
+- See booking you've received
+- Approve received bookings
+- Reject received bookings
 
 ## Code style
 - OOD
@@ -161,7 +165,7 @@ Run the below in the terminal in your makers-bnb directory:
 
 ## Running the tests  
 
-You can run tests by running "rspec" in the terminal in the makers-bnb directory.
+You can run tests by running ```rspec``` in the terminal in the makers-bnb directory.
 
 ### Test coverage  
 #### Feature tests

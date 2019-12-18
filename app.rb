@@ -23,17 +23,16 @@ class MakersBnB < Sinatra::Base
 
     if session[:user] == :email_clash
       session[:error] = :email_clash
-      session[:user].clear
+      session[:user] = nil
       redirect "/sign_up"
     elsif session[:user] == :username_clash
       session[:error] = :username_clash
-      session[:user].clear
+      session[:user] = nil
       redirect "/sign_up"
     else
       redirect "/"
     end
   end
-
 
   get "/log_in" do
     @error = session[:error]
@@ -53,11 +52,13 @@ class MakersBnB < Sinatra::Base
   end
 
   post "/log_out" do
+    @user = session[:user]
     session.clear
     redirect '/'
   end
 
   get '/new' do
+    @user = session[:user]
     erb :new, { :layout => :layout }
   end
 
@@ -69,10 +70,12 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/rental/confirmation' do
+    @user = session[:user]
     erb :confirmation
   end
 
   get '/rental/:id' do
+    @user = session[:user]
     @rental = Rental.rental_details(id: params[:id])
     @date_available = session[:date]
     erb :rental
@@ -84,6 +87,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/requests' do
+    @user = session[:user]
     erb :requests
   end
 

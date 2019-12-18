@@ -5,10 +5,10 @@ feature 'checking dates' do
     add_rental_feature
 
     click_on 'Place 1'
-    fill_in 'date', with: '04/05/2019'
+    fill_in 'date', with: '2019-05-04'
     click_on 'Check Date'
 
-    expect(page).to have_field('#date-checker', with: 'Date available!')
+    expect(page).to have_content 'Date available!'
   end
 
 end

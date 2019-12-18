@@ -12,7 +12,7 @@ def add_rental_feature
   fill_in 'name', with: 'Place 1'
   fill_in 'description', with: 'Really really really nice place'
   fill_in 'price', with: '20'
-  fill_in 'starting', with: '02/05/2019'
-  fill_in 'ending', with: '30/07/2019'
+  fill_in 'starting', with: '2019/05/02'
+  fill_in 'ending', with: '2019/07/30'
   click_on 'Submit'
 end

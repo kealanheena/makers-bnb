@@ -5,7 +5,7 @@
 
 <ul>
   <% @list.each do |rental| %>
-    <li>Name: <a href="/rental/<%= rental.id %>"><%= rental.name %></a></li>
+    <li>Name: <% if @user %><a href="/rental/<%= rental.id %>"><% end %><%= rental.name %></a></li>
     <li>Description: <%= rental.description %></li>
     <li>Price Per Night: £<%= rental.price %></li>
     <li>Start Date: <%= rental.starting %>

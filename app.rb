@@ -72,6 +72,8 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/rental/:id' do
+    p 'inside the get'
+    p params
     @rental = Rental.rental_details(params[:id])
     # p @rental.id
     @date_available = session[:date]
@@ -80,9 +82,10 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/rental/:id' do
+    p 'in the post'
     p params
     session[:date] = Rental.check_date(params[:id], params[:date])
-    redirect '/rental/:id'
+    redirect "/rental/#{params[:id]}"
   end
 
   run! if app_file == $0

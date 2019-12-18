@@ -29,16 +29,15 @@ class Rental
   end
 
   def self.rental_details(id)
-    p id
     database_selector
-    result = @connection.exec("SELECT * FROM rentals WHERE id= '#{id}'")
+    query = "SELECT * FROM rentals WHERE id= '#{id}'"
+    result = @connection.exec(query)
     Rental.new(result[0]["name"], result[0]["description"], result[0]["price"], result[0]["id"], result[0]["start_date"], result[0]["end_date"])
   end
 
   def self.check_date(id, date)
-    p id
+
     rental = Rental.rental_details(id)
-    # p rental
     parsed_date = DateTime.parse(date)
     parsed_date.between?(rental.starting, rental.ending) ? "Date available!" : "Not available"
     

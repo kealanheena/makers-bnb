@@ -19,7 +19,7 @@ describe Booking do
 
   describe ".made" do
     it "displays all the bookings the user has made" do
-      
+
     end
   end
 

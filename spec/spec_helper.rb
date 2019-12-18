@@ -24,7 +24,6 @@ RSpec.configure do |config|
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
   config.before(:each) do
-    p "Cleaning database"
     connection = PG.connect(dbname: 'bnb_test')
     connection.exec("TRUNCATE TABLE rentals, users, bookings;")
   end

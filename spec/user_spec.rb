@@ -3,7 +3,7 @@ require 'user'
 describe "User" do
 
   before do
-    @jd = sign_up_test
+    @jd = sign_up_user
   end
 
   describe ".sign_up" do

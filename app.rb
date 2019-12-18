@@ -76,6 +76,10 @@ class MakersBnB < Sinatra::Base
     erb :rental
   end
 
+  get '/requests' do
+    erb :requests
+  end
+
   # post '/rental/:id' do
   #   Rental.check_date(params[:id], params[:date])
   #   redirect '/rental/:id'

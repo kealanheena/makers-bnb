@@ -4,4 +4,6 @@
   <input type='submit' value='Check Date'>
 </form>
 <h2 id='date-checker'><%= @date_available %></h2>
-<a href='/rental/confirmation'>Book</a>
+<% if @date_available == "Date available!" %>
+  <a href='/rental/confirmation'>Book</a>
+<% end %>

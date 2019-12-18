@@ -58,7 +58,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/new' do
-    Rental.add(params[:name], params[:description], params[:price], session[:user].username)
+    Rental.add(params[:name], params[:description], params[:price], params[:starting], params[:ending], session[:user].username)
     redirect '/'
   end
 
@@ -71,7 +71,7 @@ class MakersBnB < Sinatra::Base
     @date_available = session[:date]
     erb :rental
   end
-  
+
   post '/rental/:id' do
     session[:date] = Rental.check_date(params[:id], params[:date])
     redirect "/rental/#{params[:id]}"

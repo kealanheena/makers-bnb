@@ -30,15 +30,17 @@ describe "User" do
       expect(jd.username).to eq("JDTest")
     end
 
-    context "fails to log in if user is not recognized" do
+     context "fails to log in if user is not recognized" do
       it "fails if wrong email" do
         expect(User.authenticate(email: "jc@taste.com", password: "por85g" )).to be false
       end
 
       it "fails if wrong password" do
+        connection = PG.connect(dbname: 'bnb_test')
+        connection.exec("TRUNCATE TABLE rentals, users, bookings;")
         expect(User.authenticate(email: "jd@test.com", password: "proc85g" )).to be false
       end
-    end
+     end
 
   end
 end

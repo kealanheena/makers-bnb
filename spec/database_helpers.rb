@@ -9,12 +9,12 @@ def add_users_to_database
     VALUES('JDTest','jd@test.com', '#{encrypted_password}');")
 end
 
-# def add_rentals_to_databse
-#   connection = PG.connect(dbname: 'bnb_test')
-#   result = @connection.exec("SELECT id FROM users WHERE username = 'JDTest';")
-#   user_id =
-#
-#   connection.exec("INSERT INTO rentals(name, description, price, user_id)
-#     VALUES('Place 1','eally really really nice place', '20',
-#       '#{result}';")
-# end
+def add_rentals_to_database
+  connection = PG.connect(dbname: 'bnb_test')
+  result = connection.exec("SELECT * FROM users WHERE username = 'JDTest';")
+  user_id = result[0]["id"]
+
+  connection.exec("INSERT INTO rentals(name, description, price, user_id)
+    VALUES('Place 1','eally really really nice place', '20',
+      '#{user_id}');")
+end

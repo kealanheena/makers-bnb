@@ -26,7 +26,7 @@ RSpec.configure do |config|
   config.before(:each) do
     p "Cleaning database"
     connection = PG.connect(dbname: 'bnb_test')
-    connection.exec("TRUNCATE TABLE rentals, users;")
+    connection.exec("TRUNCATE TABLE rentals, users, bookings;")
   end
 
 end

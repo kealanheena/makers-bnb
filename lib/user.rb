@@ -39,8 +39,7 @@ attr_reader :username
 
     def self.database_selector
 
-
-      if ENV['ENVIRONMENT'] = 'test'
+      if ENV['ENVIRONMENT'] == 'test'
         @connection = PG.connect(dbname: 'bnb_test')
       else
         @connection = PG.connect(dbname: 'bnb')

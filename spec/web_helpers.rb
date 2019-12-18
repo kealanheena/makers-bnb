@@ -1,6 +1,6 @@
 def add_rentals
-  Rental.add('Place 1', 'nice place', '20', "2020-05-16", "2020-06-17")
-  Rental.add('Place 2', 'great place', '30', "2020-06-18", "2020-07-20")
+  Rental.add('Place 1', 'nice place', '20', 1)
+  Rental.add('Place 2', 'great place', '30', 1)
 end
 
 def add_rental_feature
@@ -11,4 +11,8 @@ def add_rental_feature
   fill_in 'starting', with: '02/05/2019'
   fill_in 'ending', with: '30/07/2019'
   click_on 'Submit'
+end
+
+def sign_up_test
+  User.sign_up(username: "JDTest", email: "jd@test.com", password: "por85g")
 end

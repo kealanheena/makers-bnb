@@ -11,7 +11,7 @@ feature 'add rental' do
   scenario 'should be able to add set of available dates to rental' do
     sign_up_test
     add_rental_feature
-    expect(page).to have_content '2019-05-02'
-    expect(page).to have_content '2019-07-30'
+    expect(page).to have_content '02 May 2019'
+    expect(page).to have_content '30 July 2019'
   end
 end

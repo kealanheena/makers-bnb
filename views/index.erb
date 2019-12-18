@@ -8,7 +8,7 @@
     <li>Name: <% if @user %><a href="/rental/<%= rental.id %>"><% end %><%= rental.name %></a></li>
     <li>Description: <%= rental.description %></li>
     <li>Price Per Night: £<%= rental.price %></li>
-    <li>Start Date: <%= rental.starting %>
-    <li>End Date: <%= rental.ending %><br>
+    <li>Start Date: <%= rental.starting.strftime('%d %B %Y') %>
+    <li>End Date: <%= rental.ending.strftime('%d %B %Y') %><br>
   <% end %>
 </ul>

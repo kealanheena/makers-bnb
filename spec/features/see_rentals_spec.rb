@@ -8,6 +8,7 @@ feature "rentals list" do
   end
 
   scenario "should see a list of rentals" do
+    sign_up_test
     add_rentals
 
     visit "/"

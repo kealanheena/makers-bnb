@@ -53,17 +53,12 @@ class MakersBnB < Sinatra::Base
     redirect '/'
   end
 
-  # get '/rentals' do
-  #   @list = Rental.all
-  #   erb :rentals
-  # end
-
   get '/new' do
     erb :new, { :layout => :layout }
   end
 
   post '/new' do
-    Rental.add(params[:name], params[:description], params[:price], params[:starting], params[:ending])
+    Rental.add(params[:name], params[:description], params[:price], session[:user].username)
     redirect '/'
   end
 
@@ -72,20 +67,18 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/rental/:id' do
-    p 'inside the get'
-    p params
     @rental = Rental.rental_details(params[:id])
-    # p @rental.id
     @date_available = session[:date]
-    # p @date_available
     erb :rental
   end
-
+  
   post '/rental/:id' do
-    p 'in the post'
-    p params
     session[:date] = Rental.check_date(params[:id], params[:date])
     redirect "/rental/#{params[:id]}"
+  end
+
+  get '/requests' do
+    erb :requests
   end
 
   run! if app_file == $0

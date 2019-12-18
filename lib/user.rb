@@ -3,7 +3,7 @@ require 'bcrypt'
 
 class User
 
-attr_reader :username
+attr_reader :username, :id
 
   def initialize(username:, email:, password:, id:, created_at:)
     @username = username

@@ -18,8 +18,8 @@ attr_reader :username, :id
 
       database_selector
 
-      return "Email already exists" unless email_exists?(email: email)
-      return "Username already exists" unless username_exists?(username: username)
+      return :email_clash unless email_exists?(email: email)
+      return :username_clash unless username_exists?(username: username)
 
       result = @connection.exec("INSERT INTO users(username, email, password)
         VALUES('#{username}', '#{email}', '#{encrypted_password}')

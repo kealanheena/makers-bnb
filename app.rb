@@ -19,12 +19,12 @@ class MakersBnB < Sinatra::Base
 
   post "/sign_up" do
     session[:user] = User.sign_up(username: params["Username"], email: params["Email"], password: params["Password"])
-    if session[:user] == "Email already exists"
-      session[:error] = "Email already exists"
+    if session[:user] == :email_clash
+      session[:error] = :email_clash
       session[:user].clear
       redirect "/sign_up"
-    elsif session[:user] == "Username already exists"
-      session[:error] = "Username already exists"
+    elsif session[:user] == :username_clash
+      session[:error] = :username_clash
       session[:user].clear
       redirect "/sign_up"
     else
@@ -58,7 +58,8 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/new' do
-    Rental.add(params[:name], params[:description], params[:price], params[:starting], params[:ending], session[:user].username)
+    Rental.add(params[:name], params[:description], params[:price],
+      params[:starting], params[:ending], session[:user].username)
     redirect '/'
   end
 

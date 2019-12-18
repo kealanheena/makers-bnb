@@ -14,11 +14,11 @@ describe "User" do
     end
 
     it "fails to sign up if email already has an account" do
-      expect(User.sign_up(username: "helloBob", email: "jd@test.com", password: "por85g")).to eq "Email already exists"
+      expect(User.sign_up(username: "helloBob", email: "jd@test.com", password: "por85g")).to eq :email_clash
     end
 
     it "fails to sign up if username already has an account" do
-      expect(User.sign_up(username: "JDTest", email: "hello@test.com", password: "super87")).to eq "Username already exists"
+      expect(User.sign_up(username: "JDTest", email: "hello@test.com", password: "super87")).to eq :username_clash
     end
   end
 

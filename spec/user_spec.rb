@@ -40,5 +40,6 @@ describe "User" do
         expect(User.authenticate(email: "jd@test.com", password: "proc85g" )).to be false
       end
     end
+
   end
 end

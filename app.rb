@@ -63,7 +63,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/new' do
-    Rental.add(params[:name], params[:description], params[:price])
+    Rental.add(params[:name], params[:description], params[:price], params[:starting], params[:ending])
     redirect '/'
   end
 
@@ -76,7 +76,10 @@ class MakersBnB < Sinatra::Base
     erb :rental
   end
 
-
+  post '/rental/:id' do
+    Rental.check_date(params[:id], params[:date])
+    redirect '/rental/:id'
+  end
 
   run! if app_file == $0
 

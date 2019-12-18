@@ -1,3 +1,6 @@
 <h1><%= @rental.name %></h1>
-
+<form action='/rental' method='post'>
+  <input type='date' name='date'>
+  <input type='submit' value='Check Date'>
+</form>
 <a href='/rental/confirmation'>Book</a>

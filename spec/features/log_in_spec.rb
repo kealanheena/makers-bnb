@@ -1,5 +1,6 @@
 feature "log in" do
   scenario "an existing user can log in" do
+
     clear_database
     User.sign_up(username: "JDTest", email: "jd@test.com", password: "por85g")
 

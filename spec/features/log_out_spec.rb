@@ -1,6 +1,5 @@
 feature "log in" do
   scenario "an existing user can log in" do
-    clear_database
     visit "/"
     click_link "Sign Up"
     fill_in "Username", with: "JDTest"

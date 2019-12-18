@@ -1,26 +1,10 @@
-
-  <h1>Makers BnB</h1>
-  <a href='/new'>Add Rental</a>
-
-  <% if @user %>
-    Welcome <%=@user.username%>!
-    <form action="/log_out" method="post"><br>
-      <input type="submit" value="Log Out">
-    </form>
-  <% else %>
-    <a href='/sign_up'>Sign Up</a> <br>
-    <a href='/log_in'>Log In</a><br>
+<h1>Makers BnB</h1>
+<a href='/new' class="btn btn-primary">Add Rental</a>
+<a href='/rentals' class="btn btn-primary">See Rentals</a>
+<ul>
+  <% @list.each do |rental| %>
+    <li>Name: <a href='/rental/<%= rental.id %>' method='post' ><%= rental.name %></a></li>
+    <li>Description: <%= rental.description %></li>
+    <li>Price Per Night: £<%= rental.price %></li><br>
   <% end %>
-
-  <a href='/rentals'>See Rentals</a>
-
-
-  <ul>
-    <% @list.each do |rental| %>
-      <li>Name: <a href='/rental/<%= rental.id %>' method='post' ><%= rental.name %></a></li>
-      <li>Description: <%= rental.description %></li>
-      <li>Price Per Night: £<%= rental.price %></li>
-      <li>Start Date: <%= rental.starting %>
-      <li>End Date: <%= rental.ending %><br>
-    <% end %>
-  </ul>
+</ul>

@@ -46,10 +46,17 @@ class Rental
       ending: result[0]["end_date"], user_id: result[0]["user_id"])
   end
 
-  def self.check_date(id:, date:)
+  def self.check_date(id:, date:) 
     rental = rental_details(id: id)
     parsed_date = DateTime.parse(date)
-    parsed_date.between?(rental.starting, rental.ending) ? "Date available!" : "Not available"
+
+    result = @connection.exec("SELECT id FROM bookings WHERE date='#{date}' AND status='Approved'")
+    
+    if (parsed_date.between?(rental.starting, rental.ending)) && (result.ntuples == 0) 
+      "Date available!" 
+    else  
+      'Not available'
+    end
   end
 
   def self.database_selector

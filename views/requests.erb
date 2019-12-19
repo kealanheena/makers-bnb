@@ -1,0 +1,16 @@
+<h1>Requests</h1>
+
+<h2>Requests I've made</h2>
+
+<ul>
+  <% @bookings_made.each do |booking| %>
+    <li>Name: <%= Rental.rental_details(id: booking.rental_id).name %></a></li>
+    <li>Description: <%= Rental.rental_details(id: booking.rental_id).description %></li>
+    <li>Total Price: £<%= Rental.rental_details(id: booking.rental_id).price %></li>
+    <li>Date:</li>
+    <li>Owner: <%= User.user_details(id: Rental.rental_details(id: booking.rental_id).user_id).username %></li>
+    <li>Booking Status: <%= booking.status %></li>
+  <% end %>
+</ul>
+
+<h2>Requests I've received</h2>

@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require './lib/rental.rb'
 require './lib/user.rb'
+require './lib/booking.rb'
 
 class MakersBnB < Sinatra::Base
 
@@ -69,11 +70,6 @@ class MakersBnB < Sinatra::Base
     redirect '/'
   end
 
-  get '/rental/confirmation' do
-    @user = session[:user]
-    erb :confirmation
-  end
-
   get '/rental/:id' do
     @user = session[:user]
     @rental = Rental.rental_details(id: params[:id])
@@ -86,8 +82,20 @@ class MakersBnB < Sinatra::Base
     redirect "/rental/#{params[:id]}"
   end
 
+  get '/rental/:id/confirmation' do
+    @user = session[:user]
+    erb :confirmation
+  end
+
+  post '/rental/:id/confirmation' do
+    @rental = Rental.rental_details(id: params[:id])
+    Booking.create(rental_name: @rental.name, client_username: session[:user].username)
+    redirect "/rental/#{params[:id]}/confirmation"
+  end
+
   get '/requests' do
     @user = session[:user]
+    @bookings_made = Booking.made(client_username: @user.username)
     erb :requests
   end
 

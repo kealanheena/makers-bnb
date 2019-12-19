@@ -42,6 +42,28 @@ class User
         created_at: result[0]["created_at"])
     end
 
+    def self.user_details(id:)
+      database_selector
+
+      query = "SELECT * FROM users WHERE id= '#{id}'"
+      result = @connection.exec(query)
+
+      User.new(username: result[0]["username"], email: result[0]["email"],
+        password: result[0]["password"], id: result[0]["id"],
+        created_at: result[0]["created_at"])
+    end
+
+    def self.rental_details(id:)
+      database_selector
+
+      query = "SELECT * FROM rentals WHERE id= '#{id}'"
+      result = @connection.exec(query)
+
+      Rental.new(name: result[0]["name"], description: result[0]["description"],
+        price: result[0]["price"], id: result[0]["id"], starting: result[0]["start_date"],
+        ending: result[0]["end_date"], user_id: result[0]["user_id"])
+    end
+
     def self.database_selector
       if ENV['ENVIRONMENT'] == 'test'
         @connection = PG.connect(dbname: 'bnb_test')

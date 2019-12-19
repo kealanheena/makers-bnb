@@ -23,6 +23,6 @@ def add_rentals_to_database
       '#{user_id}');")
 
   connection.exec("INSERT INTO rentals(name, description, price, user_id)
-    VALUES('Place 2','Picturesque location on a lake', '20',
+    VALUES('Place 2','Picturesque location on a lake', '30',
       '#{user_id}');")
 end

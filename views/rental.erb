@@ -5,5 +5,7 @@
 </form>
 <h2 id='date-checker'><%= @date_available %></h2>
 <% if @date_available == "Date available!" %>
-  <a href='/rental/confirmation'>Book</a>
+<form action='/rental/<%=@rental.id%>/confirmation' method='post'>
+  <input type='submit' value='Book'>
+</form>
 <% end %>

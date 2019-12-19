@@ -57,6 +57,13 @@ class Booking
     }
   end
 
+  def self.update_status(id:, status:)
+    database_selector
+
+    result = @connection.exec("UPDATE bookings SET status = '#{status}' WHERE id = '#{id}'
+      RETURNING status;")
+  end
+
   def self.database_selector
     if ENV['ENVIRONMENT'] == 'test'
       @connection = PG.connect(dbname: 'bnb_test')

@@ -21,6 +21,15 @@ feature "Approve or reject booking request" do
     click_on "Confirm Request"
 
     expect(page).to have_content "Place 1"
-    expect(page).to have_content "Booking confirmed"
+    expect(page).to have_content "Booking Status: Approved"
+  end
+
+  scenario "user can reject a request for their rental property" do
+    click_on "Requests"
+    click_on "Place 1"
+    click_on "Reject Request"
+
+    expect(page).to have_content "Place 1"
+    expect(page).to have_content "Booking Status: Rejected"
   end
 end

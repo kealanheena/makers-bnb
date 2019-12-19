@@ -1,7 +1,6 @@
 
 
     <ul>
-        
           <% @list.each do |rental| %>
             <div class="listing">
               <a href="/rental/<%= rental.id %>"><li>Name: <%= rental.name %></li>
@@ -9,7 +8,6 @@
               <li>Price Per Night: £<%= rental.price %></li></a>
             </div>
           <% end %>
-        
     </ul>
 
 

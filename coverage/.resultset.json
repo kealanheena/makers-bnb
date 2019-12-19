@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/jbero/Projects/Week6/makers-bnb/spec/booking_spec.rb": [
+      "/Users/student/Makers/week6/makers-bnb/spec/booking_spec.rb": [
         1,
         null,
         1,
@@ -36,7 +36,7 @@
         null,
         null
       ],
-      "/Users/jbero/Projects/Week6/makers-bnb/spec/features/add_rental_spec.rb": [
+      "/Users/student/Makers/week6/makers-bnb/spec/features/add_rental_spec.rb": [
         1,
         null,
         1,
@@ -46,16 +46,10 @@
         1,
         1,
         null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
         null,
         null
       ],
-      "/Users/jbero/Projects/Week6/makers-bnb/spec/features/book_rental_spec.rb": [
+      "/Users/student/Makers/week6/makers-bnb/spec/features/book_rental_spec.rb": [
         1,
         null,
         1,
@@ -73,7 +67,7 @@
         null,
         null
       ],
-      "/Users/jbero/Projects/Week6/makers-bnb/spec/features/check_dates_spec.rb": [
+      "/Users/student/Makers/week6/makers-bnb/spec/features/check_dates_spec.rb": [
         1,
         null,
         1,
@@ -98,7 +92,7 @@
         null,
         null
       ],
-      "/Users/jbero/Projects/Week6/makers-bnb/spec/features/log_in_spec.rb": [
+      "/Users/student/Makers/week6/makers-bnb/spec/features/log_in_spec.rb": [
         1,
         1,
         null,
@@ -132,7 +126,7 @@
         null,
         null
       ],
-      "/Users/jbero/Projects/Week6/makers-bnb/spec/features/log_out_spec.rb": [
+      "/Users/student/Makers/week6/makers-bnb/spec/features/log_out_spec.rb": [
         1,
         1,
         1,
@@ -147,7 +141,7 @@
         null,
         null
       ],
-      "/Users/jbero/Projects/Week6/makers-bnb/spec/features/request_page_spec.rb": [
+      "/Users/student/Makers/week6/makers-bnb/spec/features/request_page_spec.rb": [
         1,
         null,
         1,
@@ -210,7 +204,7 @@
         null,
         null
       ],
-      "/Users/jbero/Projects/Week6/makers-bnb/spec/features/see_rentals_spec.rb": [
+      "/Users/student/Makers/week6/makers-bnb/spec/features/see_rentals_spec.rb": [
         1,
         null,
         1,
@@ -236,7 +230,7 @@
         null,
         null
       ],
-      "/Users/jbero/Projects/Week6/makers-bnb/spec/features/sign_up_spec.rb": [
+      "/Users/student/Makers/week6/makers-bnb/spec/features/sign_up_spec.rb": [
         1,
         1,
         1,
@@ -271,7 +265,7 @@
         null,
         null
       ],
-      "/Users/jbero/Projects/Week6/makers-bnb/spec/rental_spec.rb": [
+      "/Users/student/Makers/week6/makers-bnb/spec/rental_spec.rb": [
         1,
         1,
         null,
@@ -319,7 +313,7 @@
         null,
         null
       ],
-      "/Users/jbero/Projects/Week6/makers-bnb/spec/user_spec.rb": [
+      "/Users/student/Makers/week6/makers-bnb/spec/user_spec.rb": [
         1,
         null,
         1,
@@ -369,6 +363,6 @@
         null
       ]
     },
-    "timestamp": 1576761105
+    "timestamp": 1576767211
   }
 }

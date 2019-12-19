@@ -8,10 +8,4 @@ feature 'add rental' do
     expect(page).to have_content 'Price Per Night: £20'
   end
 
-  scenario 'should be able to add set of available dates to rental' do
-    sign_up_test
-    add_rental_feature
-    expect(page).to have_content '02 May 2019'
-    expect(page).to have_content '30 July 2019'
-  end
 end

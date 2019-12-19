@@ -36,7 +36,25 @@ class Booking
   end
 
   def self.received(owner_username:)
+    database_selector
 
+    owner = @connection.exec("SELECT id FROM users WHERE username = '#{owner_username}';")
+    owner_id = owner[0]["id"]
+
+    rentals = @connection.exec("SELECT id FROM rentals WHERE user_id = '#{owner_id}';")
+    rental_ids = []
+
+    rentals.each { |rental|
+      rental_ids << rental["id"]
+    }
+
+    rental_ids.map { |id|
+      result = @connection.exec("SELECT * FROM bookings WHERE rental_id = '#{id}';")
+      result.map { |booking|
+        Booking.new(id: booking['id'], rental_id: booking['rental_id'],
+          client_id: booking['client_id'], status: booking['status'])
+      }
+    }
   end
 
   def self.database_selector

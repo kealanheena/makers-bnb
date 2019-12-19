@@ -39,7 +39,6 @@ describe "User" do
       end
 
       it "fails if wrong password" do
-        
         user = User.authenticate(email: "jd@test.com", password: "proc85g" )
         expect(user).to be false
       end

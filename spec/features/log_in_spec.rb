@@ -3,11 +3,7 @@ feature "log in" do
 
     User.sign_up(username: "JDTest", email: "jd@test.com", password: "por85g")
 
-    visit "/"
-    click_link "Log In"
-    fill_in "Email", with: "jd@test.com"
-    fill_in "Password", with: "por85g"
-    click_on "Sign In"
+    log_in_test
     expect(page).to have_content "Welcome JDTest!"
   end
 

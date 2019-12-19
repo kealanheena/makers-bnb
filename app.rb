@@ -74,6 +74,7 @@ class MakersBnB < Sinatra::Base
     @user = session[:user]
     @rental = Rental.rental_details(id: params[:id])
     @date_available = session[:check_date]
+    session[:date] = nil
     erb :rental
   end
 
@@ -99,6 +100,17 @@ class MakersBnB < Sinatra::Base
     @bookings_made = Booking.made(client_username: @user.username)
     @bookings_received = Booking.received(owner_username: @user.username)
     erb :requests
+  end
+
+  get '/request/:id' do
+    @rental = Rental.rental_details(id: params[:id])
+    @booking_id = params[:id]
+    erb :request_page
+  end
+
+  post '/request/:id' do
+    Booking.update_status(id: params[:id], status: params[:status])
+    redirect '/requests'
   end
 
   run! if app_file == $0

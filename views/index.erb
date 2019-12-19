@@ -1,11 +1,9 @@
-
-
-    <ul>
-          <% @list.each do |rental| %>
-            <div class="listing">
-              <%if @user%> <a href="/rental/<%= rental.id %>"><%end%><li>Name: <%= rental.name %></li>
-              <li>Description: <%= rental.description %></li>
-              <li>Price Per Night: £<%= rental.price %></li></a>
-            </div>
-          <% end %>
-    </ul>
+<ul>
+  <% @list.each do |rental| %>
+    <div class="listing">
+      <%if @user%> <a href="/rental/<%= rental.id %>"><%end%><li>Name: <%= rental.name %></li>
+        <li>Description: <%= rental.description %></li>
+        <li>Price Per Night: £<%= rental.price %></li></a>
+    </div>
+      <% end %>
+</ul>

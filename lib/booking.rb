@@ -1,6 +1,6 @@
 class Booking
 
-  attr_reader :status, :rental_id, :client_id, :status, :date
+  attr_reader :status, :rental_id, :client_id, :status, :date, :id
 
   def initialize(id:, rental_id:, client_id:, status:, date:)
     @id = id
@@ -56,6 +56,13 @@ class Booking
           client_id: booking['client_id'], status: booking['status'], date: booking['date'])
       }
     }
+  end
+
+  def self.update_status(id:, status:)
+    database_selector
+
+    result = @connection.exec("UPDATE bookings SET status = '#{status}' WHERE id = '#{id}'
+      RETURNING status;")
   end
 
   def self.database_selector

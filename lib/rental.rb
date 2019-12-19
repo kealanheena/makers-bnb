@@ -36,11 +36,10 @@ class Rental
   end
 
   def self.rental_details(id:)
+    
     database_selector
-
     query = "SELECT * FROM rentals WHERE id= '#{id}'"
     result = @connection.exec(query)
-
     Rental.new(name: result[0]["name"], description: result[0]["description"],
       price: result[0]["price"], id: result[0]["id"], starting: result[0]["start_date"],
       ending: result[0]["end_date"], user_id: result[0]["user_id"])

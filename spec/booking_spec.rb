@@ -8,8 +8,8 @@ describe Booking do
   before do
     add_users_to_database
     add_rentals_to_database
-    Booking.create(rental_name: "Place 1", client_username: "helloBob")
-    Booking.create(rental_name: "Place 2", client_username: "helloBob")
+    Booking.create(rental_name: "Place 1", client_username: "helloBob", date: '2019/05/04')
+    Booking.create(rental_name: "Place 2", client_username: "helloBob", date: '2019/05/04')
   end
 
   describe ".made" do

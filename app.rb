@@ -73,12 +73,13 @@ class MakersBnB < Sinatra::Base
   get '/rental/:id' do
     @user = session[:user]
     @rental = Rental.rental_details(id: params[:id])
-    @date_available = session[:date]
+    @date_available = session[:check_date]
     erb :rental
   end
 
   post '/rental/:id' do
-    session[:date] = Rental.check_date(id: params[:id], date: params[:date])
+    session[:check_date] = Rental.check_date(id: params[:id], date: params[:date])
+    session[:date] = params[:date]
     redirect "/rental/#{params[:id]}"
   end
 
@@ -89,7 +90,7 @@ class MakersBnB < Sinatra::Base
 
   post '/rental/:id/confirmation' do
     @rental = Rental.rental_details(id: params[:id])
-    Booking.create(rental_name: @rental.name, client_username: session[:user].username)
+    Booking.create(rental_name: @rental.name, client_username: session[:user].username, date: session[:date])
     redirect "/rental/#{params[:id]}/confirmation"
   end
 

@@ -68,7 +68,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/rental/confirmation' do
-    erb :confirmation
+    erb :confirmation, { :layout => :layout }
   end
 
   get '/rental/:id' do

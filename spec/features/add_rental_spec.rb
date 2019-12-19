@@ -7,4 +7,5 @@ feature 'add rental' do
     expect(page).to have_content 'Really really really nice place'
     expect(page).to have_content 'Price Per Night: £20'
   end
+
 end

@@ -1,4 +1,5 @@
 require 'booking'
+
 describe Booking do
 
   let(:user) { double :user }

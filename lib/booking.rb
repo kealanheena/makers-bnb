@@ -10,9 +10,7 @@ class Booking
 
     @connection.exec("INSERT INTO bookings(rental_id, client_id)
       VALUES('#{rental_id}', '#{client_id}');")
-
   end
-
 
   def self.database_selector
     if ENV['ENVIRONMENT'] == 'test'

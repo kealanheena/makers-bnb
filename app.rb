@@ -18,20 +18,21 @@ class MakersBnB < Sinatra::Base
   end
 
   post "/sign_up" do
-    session[:user] = User.sign_up(username: params["Username"], email: params["Email"], password: params["Password"])
-    if session[:user] == "Email already exists"
-      session[:error] = "Email already exists"
-      session[:user].clear
+    session[:user] = User.sign_up(username: params["Username"],
+      email: params["Email"], password: params["Password"])
+
+    if session[:user] == :email_clash
+      session[:error] = :email_clash
+      session[:user] = nil
       redirect "/sign_up"
-    elsif session[:user] == "Username already exists"
-      session[:error] = "Username already exists"
-      session[:user].clear
+    elsif session[:user] == :username_clash
+      session[:error] = :username_clash
+      session[:user] = nil
       redirect "/sign_up"
     else
       redirect "/"
     end
   end
-
 
   get "/log_in" do
     @error = session[:error]
@@ -39,7 +40,9 @@ class MakersBnB < Sinatra::Base
   end
 
   post "/log_in" do
-    session[:user] = User.authenticate(email: params["Email"], password: params["Password"])
+    session[:user] = User.authenticate(email: params["Email"],
+      password: params["Password"])
+
     if session[:user]
       redirect "/"
     else
@@ -49,35 +52,42 @@ class MakersBnB < Sinatra::Base
   end
 
   post "/log_out" do
+    @user = session[:user]
     session.clear
     redirect '/'
   end
 
   get '/new' do
+    @user = session[:user]
     erb :new, { :layout => :layout }
   end
 
   post '/new' do
-    Rental.add(params[:name], params[:description], params[:price], params[:starting], params[:ending], session[:user].username)
+    Rental.add(name: params[:name], description: params[:description],
+      price: params[:price], starting: params[:starting],
+      ending: params[:ending], username: session[:user].username)
     redirect '/'
   end
 
   get '/rental/confirmation' do
+    @user = session[:user]
     erb :confirmation
   end
 
   get '/rental/:id' do
-    @rental = Rental.rental_details(params[:id])
+    @user = session[:user]
+    @rental = Rental.rental_details(id: params[:id])
     @date_available = session[:date]
     erb :rental
   end
 
   post '/rental/:id' do
-    session[:date] = Rental.check_date(params[:id], params[:date])
+    session[:date] = Rental.check_date(id: params[:id], date: params[:date])
     redirect "/rental/#{params[:id]}"
   end
 
   get '/requests' do
+    @user = session[:user]
     erb :requests
   end
 

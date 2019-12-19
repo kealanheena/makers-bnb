@@ -42,8 +42,6 @@ class User
         created_at: result[0]["created_at"])
     end
 
-    private
-
     def self.database_selector
       if ENV['ENVIRONMENT'] == 'test'
         @connection = PG.connect(dbname: 'bnb_test')

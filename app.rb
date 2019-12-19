@@ -74,6 +74,7 @@ class MakersBnB < Sinatra::Base
     @user = session[:user]
     @rental = Rental.rental_details(id: params[:id])
     @date_available = session[:date]
+    session[:date] = nil
     erb :rental
   end
 
@@ -101,6 +102,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/request/:id' do
+    @rental = Rental.rental_details(id: params[:id])
     @booking_id = params[:id]
     erb :request_page
   end

@@ -5,13 +5,16 @@
     <title></title>
   </head>
   <body>
-    <h1>SIGN UP</h1>
     <% if @error == :email_clash %>
-      <p> Email already has an account, please try again. </p>
+      <div class="alert alert-danger" role="alert">
+        Email already has an account, please try again.
+      </div>
     <% elsif @error == :username_clash %>
-      <p> This username is already taken, please choose another one. </p>
+      <div class="alert alert-danger" role="alert">
+        This username is already taken, please choose another one.
+      </div>
     <%end%>
-
+  <h1>SIGN UP</h1>
     <form class="sign-up" action="/sign_up" method="post">
       Username:
       <input type="text" placeholder="Username" name="Username" required><br>

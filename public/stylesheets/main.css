@@ -1,7 +1,7 @@
 html {
   height: 100%;
 }
-  
+
 body {
   background-image: url("https://lh3.googleusercontent.com/yUzKc3ZYO2GvgmbkM0xHN2CvMhQcQZfhjY-6ix9xUhT9eKzlOgENKgVxAu1vOfdL31UE7M45LKM=w640-h400-e365");
   background-position: center;
@@ -28,7 +28,7 @@ input[type="submit"] {
   margin: 0 auto;
 }
 
-div .row {
+.row {
   text-align: center;
   align-items: center;
 }
@@ -85,3 +85,23 @@ li a:hover {
   height: 10em;
 }
 
+.request-ul {
+  list-style-type: none;
+  background-color: rgba(211, 211, 211, 0.7);
+  margin: 20px 10px;
+  border: 2px solid black;
+  width: 40%;
+  border-radius: 10px;
+}
+
+.request-div {
+  margin: 30px;
+  text-align: center;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.request-box {
+  margin-left: 15%;
+}

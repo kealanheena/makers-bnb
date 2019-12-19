@@ -18,12 +18,16 @@
 <ul>
   <% @bookings_received.each do |bookings| %>
     <% bookings.each do |booking| %>
-      <li>Name: <%= Rental.rental_details(id: booking.rental_id).name %></li>
-      <li>Description: <%= Rental.rental_details(id: booking.rental_id).description %></li>
-      <li>Total Price: £<%= Rental.rental_details(id: booking.rental_id).price %></li>
-      <li>Date:</li>
-      <li>Requested by: <%= User.user_details(id: booking.client_id).username %></li>
-      <li>Booking Status: <%= booking.status %></li>
+        <li>Name:
+          <a href='/request/<%=booking.id%>'>
+            <%= Rental.rental_details(id: booking.rental_id).name %>
+          </a>
+        </li>
+        <li>Description: <%= Rental.rental_details(id: booking.rental_id).description %></li>
+        <li>Total Price: £<%= Rental.rental_details(id: booking.rental_id).price %></li>
+        <li>Date:</li>
+        <li>Requested by: <%= User.user_details(id: booking.client_id).username %></li>
+        <li>Booking Status: <%= booking.status %></li>
     <% end %>
   <% end %>
 </ul>

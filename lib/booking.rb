@@ -1,6 +1,6 @@
 class Booking
 
-  attr_reader :status, :rental_id, :client_id, :status
+  attr_reader :status, :rental_id, :client_id, :status, :id
 
   def initialize(id:, rental_id:, client_id:, status:)
     @id = id

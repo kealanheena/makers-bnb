@@ -100,6 +100,16 @@ class MakersBnB < Sinatra::Base
     erb :requests
   end
 
+  get '/request/:id' do
+    @booking_id = params[:id]
+    erb :request_page
+  end
+
+  post '/request/:id' do
+    Booking.update_status(id: params[:id], status: params[:status])
+    redirect '/requests'
+  end
+
   run! if app_file == $0
 
 end

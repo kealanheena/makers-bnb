@@ -30,4 +30,14 @@ describe Booking do
     end
   end
 
+  # describe ".update_status" do
+  #   it "updates the booking status to Approved" do
+  #
+  #   end
+  #
+  #   it "udpates the booking status to Rejected" do
+  #
+  #   end
+  # end
+
 end

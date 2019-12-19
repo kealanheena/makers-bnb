@@ -19,6 +19,12 @@
               <a href="#">Welcome <%= @user.username %>!</a>
             </li>
             <li>
+              <a href="/new">Add Rental</a>
+            </li>
+            <li>
+              <a href="/requests">Requests</a>
+            </li>
+            <li>
               <a href="#">
                 <form action="/log_out" method="post">
                   <button class="btn-nav">Log Out</button>
@@ -33,8 +39,11 @@
         </div>
     </div>
   </nav>
-  <div class="container">
-    <%= yield %>
-  </div>
+    <div class="container">
+      <h1>Makers BnB</h1>
+      <div class="row">
+          <%= yield %>
+      </div>
+    </div>
 </body>
 </html>

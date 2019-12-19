@@ -1,14 +1,15 @@
-require_relative '../web_helpers.rb'
+feature "booking" do
 
-feature 'book rental' do
+  scenario "can book a rental" do
+    sign_up_test
+    add_rental_feature
 
-  scenario 'it should show confirmation' do
-    add_rentals
-    visit '/'
-    click_on 'Place 1'
-    expect(page).to have_content 'Place 1'
-    click_on 'Book'
-    expect(page).to have_content 'Booking confirmed!'
+    click_on "Place 1"
+    fill_in "date", with: '2019-05-04'
+    click_on "Check Date"
+    click_on "Book"
+
+    text = "Your booking request has been sent and is now pending approval."
+    expect(page).to have_content text
   end
-
 end

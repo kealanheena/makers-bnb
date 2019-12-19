@@ -1,11 +1,12 @@
 require 'database_helpers'
-
+require_relative './web_helpers.rb'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-require_relative './web_helpers.rb'
+require 'simplecov'
+require 'simplecov-console'
 
 Capybara.app = MakersBnB
 
@@ -25,7 +26,10 @@ RSpec.configure do |config|
 
   config.before(:each) do
     connection = PG.connect(dbname: 'bnb_test')
-    connection.exec("TRUNCATE TABLE rentals, users;")
+    connection.exec("TRUNCATE TABLE rentals, users, bookings;")
   end
 
 end
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Formatter::Console])
+SimpleCov.start

@@ -10,7 +10,6 @@ feature "Sign up" do
   end
 
   scenario "a message appears if email already has an account" do
-    clear_database
     User.sign_up(username: "JDTest", email: "jd@test.com", password: "por85g")
     visit "/"
     click_on "Sign Up"
@@ -22,7 +21,6 @@ feature "Sign up" do
   end
 
   scenario "a message appears if username is already taken" do
-    clear_database
     User.sign_up(username: "JDTest", email: "jd@test.com", password: "por85g")
     visit "/"
     click_on "Sign Up"

@@ -1,16 +1,23 @@
-
-
 feature 'checking dates' do
 
-  scenario 'it should check if a dates availabe to rent a property' do
-
-    add_rentals
-    visit '/'
-    click_on 'Place 1'
-    fill_in 'date', with: '04/05/2019'
-    click_on 'Check Date'
-    expect(page).to have_content 'Date available!'
-
+  before do
+    sign_up_test
+    add_rental_feature
   end
 
+  scenario 'it should show that a date is available' do
+    click_on 'Place 1'
+    fill_in 'date', with: '2019-05-04'
+    click_on 'Check Date'
+
+    expect(page).to have_content 'Date available!'
+  end
+
+  scenario 'it should show that a date is available' do
+    click_on 'Place 1'
+    fill_in 'date', with: '2020-12-01'
+    click_on 'Check Date'
+
+    expect(page).to have_content 'Not available'
+  end
 end

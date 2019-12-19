@@ -6,9 +6,9 @@
   </head>
   <body>
     <h1>SIGN UP</h1>
-    <% if @error == "Email already exists"%>
+    <% if @error == :email_clash %>
       <p> Email already has an account, please try again. </p>
-    <% elsif @error == "Username already exists" %>
+    <% elsif @error == :username_clash %>
       <p> This username is already taken, please choose another one. </p>
     <%end%>
 

@@ -67,11 +67,6 @@ li a:hover {
   display: inline-block;
 }
 
-/* .navbar {
-  opacity: 50%;
-  border-radius: 0px;
-} */
-
 .listing {
   list-style-type: none;
   background-color: lightgrey;

@@ -41,6 +41,7 @@
   </nav>
     <div class="container">
       <h1>Makers BnB</h1>
+      <% if !@user %> <h3>Please sign up or log in to select rentals</h3> <% end %>
       <div>
           <%= yield %>
       </div>

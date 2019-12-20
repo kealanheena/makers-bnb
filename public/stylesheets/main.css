@@ -108,9 +108,20 @@ li a:hover {
   margin: 30px;
   text-align: center;
   align-items: center;
-  border: 2px solid black;
   border-radius: 5px;
   color: black;
+}
+
+.black {
+  border: 2px solid black;
+}
+
+#red {
+  border: 2px solid red;
+}
+
+#green {
+  border: 2px solid green;
 }
 
 .request-link {
@@ -144,4 +155,9 @@ li a:hover {
 
 #request-title {
   margin: 0 0 5% 0;
+}
+
+#requests-header {
+  font-family: 'Roboto Slab', serif;
+  font-size: 5em;
 }

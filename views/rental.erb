@@ -1,11 +1,22 @@
-<h1><%= @rental.name %></h1>
-<form action='/rental/<%= @rental.id %>' method='post'>
-  <input type='date' name='date'>
-  <input type='submit' value='Check Date'>
-</form>
-<h2 id='date-checker'><%= @date_available %></h2>
-<% if @date_available == "Date available!" %>
-  <form action='/rental/<%=@rental.id%>/confirmation' method='post'>
-    <input type='submit' value='Book'>
-  </form>
-<% end %>
+
+<div class='rental-box'>
+ 
+  <h2><%= @rental.name %></h2>
+
+    <form action='/rental/<%= @rental.id %>' method='post' >
+      <p class="rental-description"><%= @rental.description%></p>
+      <p class="rental-price">£ <%= @rental.price%></p>
+      <input type='date' name='date'>
+      <input type='submit' value='Check Date'>
+    </form>
+
+    <% if @date_available %>
+      <h2 id='date-checker'> <%= @date_available %> </h2>
+    <% end %>
+
+    <% if @date_available == "Date available!" %>
+      <form action='/rental/<%=@rental.id%>/confirmation' method='post'>
+        <input type='submit' value='Book'>
+      </form>
+    <% end %>
+</div>

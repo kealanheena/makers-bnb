@@ -8,8 +8,8 @@ describe Booking do
   before do
     add_users_to_database
     add_rentals_to_database
-    Booking.create(rental_name: "Place 1", client_username: "helloBob")
-    Booking.create(rental_name: "Place 2", client_username: "helloBob")
+    Booking.create(rental_name: "Place 1", client_username: "helloBob", date: '2019/05/04')
+    Booking.create(rental_name: "Place 2", client_username: "helloBob", date: '2019/05/04')
   end
 
   describe ".made" do
@@ -27,6 +27,31 @@ describe Booking do
       expect(Booking.received(owner_username: "JDTest")[0][0]).to be_an_instance_of Booking
       expect(Booking.received(owner_username: "JDTest")[0][0].status).to eq "Pending  "
       expect(Booking.received(owner_username: "JDTest")[1][0].status).to eq "Pending  "
+    end
+  end
+
+  describe ".update_status" do
+
+    before do
+      connection = PG.connect(dbname: 'bnb_test')
+      rental = connection.exec("SELECT id FROM rentals WHERE name = 'Place 1';")
+      rental_id = rental[0]["id"]
+
+      booking = connection.exec("SELECT id, rental_id FROM bookings WHERE rental_id = '#{rental_id}';")
+      @booking_id = booking[0]["id"]
+      @rental_id = booking[0]["rental_id"]
+    end
+
+    it "updates the booking status to Approved" do
+      Booking.update_status(id: @booking_id, status: "Approved", rental_id: @rental_id)
+
+      expect(Booking.made(client_username: "helloBob")[1].status).to eq "Approved "
+    end
+
+    it "udpates the booking status to Rejected" do
+      Booking.update_status(id: @booking_id, status: "Rejected", rental_id: @rental_id)
+
+      expect(Booking.made(client_username: "helloBob")[1].status).to eq "Rejected "
     end
   end
 

@@ -1,29 +1,45 @@
-<h1>Requests</h1>
+<h1 id="requests-header">Requests</h1>
 
-<h2>Requests I've made</h2>
+<div class='row request-box'>
 
-<ul>
-  <% @bookings_made.each do |booking| %>
-    <li>Name: <%= Rental.rental_details(id: booking.rental_id).name %></li>
-    <li>Description: <%= Rental.rental_details(id: booking.rental_id).description %></li>
-    <li>Total Price: £<%= Rental.rental_details(id: booking.rental_id).price %></li>
-    <li>Date:</li>
-    <li>Owner: <%= User.user_details(id: Rental.rental_details(id: booking.rental_id).user_id).username %></li>
-    <li>Booking Status: <%= booking.status %></li>
-  <% end %>
-</ul>
-
-<h2>Requests I've received</h2>
-
-<ul>
-  <% @bookings_received.each do |bookings| %>
-    <% bookings.each do |booking| %>
-      <li>Name: <%= Rental.rental_details(id: booking.rental_id).name %></li>
-      <li>Description: <%= Rental.rental_details(id: booking.rental_id).description %></li>
-      <li>Total Price: £<%= Rental.rental_details(id: booking.rental_id).price %></li>
-      <li>Date:</li>
-      <li>Requested by: <%= User.user_details(id: booking.client_id).username %></li>
-      <li>Booking Status: <%= booking.status %></li>
+    <div class='col-md-6 request-ul'>
+      <h2>Requests I've made</h2>
+    <% @bookings_made.each do |booking| %>
+      <div class="request-div black" <%if booking.status == "Approved "%>id="green"<%elsif booking.status == "Rejected "%>id="red"<%end%>>
+        <li><h3><%= Rental.rental_details(id: booking.rental_id).name %></h3></li>
+        <li>Description: <%= Rental.rental_details(id: booking.rental_id).description %></li>
+        <li>Total Price: £<%= Rental.rental_details(id: booking.rental_id).price %></li>
+        <li>Date: <%= DateTime.parse(booking.date).strftime("%d %B %Y") %></li>
+        <li>Owner: <%= User.user_details(id: Rental.rental_details(id: booking.rental_id).user_id).username %></li>
+        <li>Contact Details: <%=User.user_details(id: Rental.rental_details(id: booking.rental_id).user_id).email%></li>
+        <li>Booking Status: <%= booking.status %></li>
+      </div>
     <% end %>
-  <% end %>
-</ul>
+    </div>
+
+    <div class='col-md-6 request-ul'>
+      <h2>Requests I've received</h2>
+    <% @bookings_received.each do |bookings| %>
+      <% bookings.each do |booking| %>
+          <% if booking.status == "Pending  " %>
+          <div class='request-div request-link-box black'>
+            <a href="/request/<%= booking.id %>/<%= booking.rental_id %>" class='request-link'>
+            <% else %>
+            <div class='request-div black'>
+            <% end %>
+            <li><h3>
+            <%= Rental.rental_details(id: booking.rental_id).name %>
+            </h3></li>
+          <li>Description: <%= Rental.rental_details(id: booking.rental_id).description %></li>
+          <li>Total Price: £<%= Rental.rental_details(id: booking.rental_id).price %></li>
+          <li>Date: <%= DateTime.parse(booking.date).strftime("%d %B %Y") %></li>
+          <li>Requested by: <%= User.user_details(id: booking.client_id).username %></li>
+          <li>Contact Details: <%=User.user_details(id: booking.client_id).email%></li>
+          <li>Booking Status: <%= booking.status %></li>
+        </div>
+        </a>
+      <% end %>
+    <% end %>
+    </div>
+
+</div>

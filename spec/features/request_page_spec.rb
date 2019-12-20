@@ -23,17 +23,17 @@ feature "Requests page" do
     visit '/'
     click_on "Requests"
 
-    expect(page).to have_content "Name: Place 1"
+    expect(page).to have_content "Place 1"
     expect(page).to have_content "Description: Really really really nice place"
     expect(page).to have_content "Total Price: £20"
-    expect(page).to have_content "Date:"
+    expect(page).to have_content "Date: 04 May 2019"
     expect(page).to have_content "Owner: JDTest"
     expect(page).to have_content "Booking Status: Pending"
 
-    expect(page).to have_content "Name: Place 2"
-    expect(page).to have_content "Description: Picturesque location on a lak"
+    expect(page).to have_content "Place 2"
+    expect(page).to have_content "Description: Picturesque location on a lake"
     expect(page).to have_content "Total Price: £30"
-    expect(page).to have_content "Date:"
+    expect(page).to have_content "Date: 04 May 2019"
     expect(page).to have_content "Owner: JDTest"
     expect(page).to have_content "Booking Status: Pending"
   end
@@ -44,17 +44,17 @@ feature "Requests page" do
 
     click_on "Requests"
 
-    expect(page).to have_content "Name: Place 1"
+    expect(page).to have_content "Place 1"
     expect(page).to have_content "Description: Really really really nice place"
     expect(page).to have_content "Total Price: £20"
-    expect(page).to have_content "Date:"
+    expect(page).to have_content "Date: 04 May 2019"
     expect(page).to have_content "Requested by: helloBob"
     expect(page).to have_content "Booking Status: Pending"
 
-    expect(page).to have_content "Name: Place 2"
+    expect(page).to have_content "Place 2"
     expect(page).to have_content "Description: Picturesque location on a lak"
     expect(page).to have_content "Total Price: £30"
-    expect(page).to have_content "Date:"
+    expect(page).to have_content "Date: 04 May 2019"
     expect(page).to have_content "Requested by: helloBob"
     expect(page).to have_content "Booking Status: Pending"
   end

@@ -20,15 +20,17 @@
       <h2>Requests I've received</h2>
     <% @bookings_received.each do |bookings| %>
       <% bookings.each do |booking| %>
+        <% if booking.status == "Pending  " %>
+        <a href="/request/<%= booking.id %>/<%= booking.rental_id %>" class='request-link'>
+        <% end %>
         <div class='request-div'>
           <li><h3>
-            <% if booking.status == "Pending  " %>
-          <a href="/request/<%= booking.id %>">
+            
+          
             <%= Rental.rental_details(id: booking.rental_id).name %>
-          </a>
-          <% else %>
-            <%= Rental.rental_details(id: booking.rental_id).name %>
-          <% end %>
+          
+          
+          
           </h3></li>
           <li>Description: <%= Rental.rental_details(id: booking.rental_id).description %></li>
           <li>Total Price: £<%= Rental.rental_details(id: booking.rental_id).price %></li>
@@ -36,6 +38,7 @@
           <li>Requested by: <%= User.user_details(id: booking.client_id).username %></li>
           <li>Booking Status: <%= booking.status %></li>
         </div>
+        </a>
       <% end %>
     <% end %>
     </div>

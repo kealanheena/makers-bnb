@@ -102,7 +102,7 @@ class MakersBnB < Sinatra::Base
     erb :requests
   end
 
-  get '/request/:rental_id/:booking_id' do
+  get '/request/:booking_id/:rental_id' do
     @rental = Rental.rental_details(id: params[:rental_id])
     @booking_id = params[:booking_id]
     erb :request_page

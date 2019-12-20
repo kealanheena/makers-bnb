@@ -6,7 +6,7 @@
       <h2>Requests I've made</h2>
     <% @bookings_made.each do |booking| %>
       <div class="request-div">
-        <li>Name: <%= Rental.rental_details(id: booking.rental_id).name %></li>
+        <li><h3><%= Rental.rental_details(id: booking.rental_id).name %></h3></li>
         <li>Description: <%= Rental.rental_details(id: booking.rental_id).description %></li>
         <li>Total Price: £<%= Rental.rental_details(id: booking.rental_id).price %></li>
         <li>Date:</li>
@@ -21,7 +21,7 @@
     <% @bookings_received.each do |bookings| %>
       <% bookings.each do |booking| %>
         <div class='request-div'>
-          <li>Name: 
+          <li><h3>
             <% if booking.status == "Pending  " %>
           <a href="/request/<%= booking.id %>">
             <%= Rental.rental_details(id: booking.rental_id).name %>
@@ -29,7 +29,7 @@
           <% else %>
             <%= Rental.rental_details(id: booking.rental_id).name %>
           <% end %>
-          </li>
+          </h3></li>
           <li>Description: <%= Rental.rental_details(id: booking.rental_id).description %></li>
           <li>Total Price: £<%= Rental.rental_details(id: booking.rental_id).price %></li>
           <li>Date:</li>

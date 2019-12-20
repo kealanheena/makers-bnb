@@ -50,9 +50,10 @@ li a:hover {
   background-color: rgba(211, 211, 211, 0.8);
 }
 
-.form-control {
-  margin: 5px;
+input.form-control {
+  margin: auto;
   width: 25%;
+  align-items: center;
   border-radius: 5px;
 }
 
@@ -84,4 +85,5 @@ li a:hover {
   width: 67.5%;
   height: 10em;
 }
+
 

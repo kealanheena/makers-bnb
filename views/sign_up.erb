@@ -1,28 +1,28 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <% if @error == :email_clash %>
-      <div class="alert alert-danger" role="alert">
-        Email already has an account, please try again.
-      </div>
-    <% elsif @error == :username_clash %>
-      <div class="alert alert-danger" role="alert">
-        This username is already taken, please choose another one.
-      </div>
-    <%end%>
-  <h1>SIGN UP</h1>
-    <form class="sign-up" action="/sign_up" method="post">
-      Username:
-      <input type="text" placeholder="Username" name="Username" required><br>
-      Email:
-      <input type="email" placeholder="Email" name="Email" required><br>
-      Password (minimum 8 characters):
-      <input type="password" placeholder="Password" name="Password" minlength="8" required><br>
-      <input type="submit" value="Get Started">
-    </form>
-  </body>
-</html>
+<% if @error == :email_clash %>
+  <div class="alert alert-danger" role="alert">
+    Email already has an account, please try again.
+  </div>
+<% elsif @error == :username_clash %>
+  <div class="alert alert-danger" role="alert">
+    This username is already taken, please choose another one.
+  </div>
+<%end%>
+<h2>SIGN UP</h2>
+<form action="/sign_up" method="post"> 
+  <div class="container">
+    <div class="form-group">
+      <label for="InputUsername">Username</label>
+      <input type="text" class="form-control" id="InputUsername" placeholder="Enter username" name="Username" required>
+    </div>
+    <div class="form-group">
+      <label for="InputEmail">Email address</label>
+      <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email" name="Email" required>
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="InputPassword">Password (minimum 8 characters)</label>
+      <input type="password" class="form-control" id="InputPassword" placeholder="Password" name="Password" minlength="8" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Get Started</button>
+  </div>
+</form>

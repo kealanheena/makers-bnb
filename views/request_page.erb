@@ -1,12 +1,11 @@
-<h1> Request for '<%=@rental.name%>'</h1>
+<h2> Request for '<%=@rental.name%>'</h2>
 
-<form action='/request/<%= @booking_id %>/<%= @rental.id %>' method='post'>
+<form action='/request/<%= @booking_id %>' method='post'>
   <input type='hidden' name='status' value='Approved'>
   <input type='submit' value='Confirm Request'>
 </form>
 
-
-<form action='/request/<%= @booking_id %>/<%= @rental.id %>' method='post'>
+<form action='/request/<%= @booking_id %>' method='post'>
   <input type='hidden' name='status' value='Rejected'>
   <input type='submit' value='Reject Request'>
 </form>

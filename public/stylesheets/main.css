@@ -2,15 +2,25 @@ html {
   height: 100%;
 }
 
+.navbar-brand {
+  font-family: 'Marck Script', cursive;
+  font-size: 1.7em;
+}
+
 body {
   background-image: url("https://lh3.googleusercontent.com/yUzKc3ZYO2GvgmbkM0xHN2CvMhQcQZfhjY-6ix9xUhT9eKzlOgENKgVxAu1vOfdL31UE7M45LKM=w640-h400-e365");
-  background-position: center;
+  min-height: 100%;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   background-size: cover;
+  font-family: 'Roboto Slab', serif;
 }
 
 h1 {
   margin: 20px;
+  font-family: 'Marck Script', cursive;
+  font-size: 4em;
 }
 
 div {
@@ -65,11 +75,6 @@ li a:hover {
   display: inline-block;
 }
 
-/* .navbar {
-  opacity: 50%;
-  border-radius: 0px;
-} */
-
 .listing {
   list-style-type: none;
   background-color: lightgrey;
@@ -103,6 +108,9 @@ li a:hover {
   color: black;
 }
 
+.request-link:hover {
+  color: rgb(40, 100, 250);
+}
 .request-box {
   margin-left: 15%;
 }

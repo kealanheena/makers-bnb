@@ -29,6 +29,7 @@ feature 'checking dates' do
     click_on 'Requests'
     click_on 'Place 1'
     click_on 'Confirm Request'
+    visit '/'
     click_on 'Place 1'
     fill_in 'date', with: '2019-05-04'
     click_on 'Check Date'

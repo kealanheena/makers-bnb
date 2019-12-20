@@ -13,7 +13,7 @@ feature 'checking dates' do
     expect(page).to have_content 'Date available!'
   end
 
-  scenario 'it should show that a date is available' do
+  scenario 'it should show that a date is not available' do
     click_on 'Place 1'
     fill_in 'date', with: '2020-12-01'
     click_on 'Check Date'
@@ -34,6 +34,6 @@ feature 'checking dates' do
     fill_in 'date', with: '2019-05-04'
     click_on 'Check Date'
     expect(page).to have_content 'Not available'
-    
+
   end
 end

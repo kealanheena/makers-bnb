@@ -17,6 +17,7 @@ class Booking
     client_id = client[0]["id"]
     rental = @connection.exec("SELECT id FROM rentals WHERE name = '#{rental_name}';")
     rental_id = rental[0]["id"]
+
     @connection.exec("INSERT INTO bookings(rental_id, client_id, date)
       VALUES('#{rental_id}', '#{client_id}', '#{date}');")
   end

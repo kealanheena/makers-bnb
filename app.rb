@@ -110,7 +110,6 @@ class MakersBnB < Sinatra::Base
 
   post '/request/:booking_id/:rental_id' do
     Booking.update_status(id: params[:booking_id], status: params[:status], rental_id: params[:rental_id])
-
     redirect '/requests'
   end
 

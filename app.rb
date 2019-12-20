@@ -5,7 +5,7 @@ require './lib/booking.rb'
 
 class MakersBnB < Sinatra::Base
 
-  enable :sessions  
+  enable :sessions
 
   get "/" do
     @user = session[:user]
@@ -103,6 +103,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/request/:booking_id/:rental_id' do
+    @user = session[:user]
     @rental = Rental.rental_details(id: params[:rental_id])
     @booking_id = params[:booking_id]
     erb :request_page

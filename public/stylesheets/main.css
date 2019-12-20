@@ -2,6 +2,11 @@ html {
   height: 100%;
 }
 
+.navbar-brand {
+  font-family: 'Marck Script', cursive;
+  font-size: 1.7em;
+}
+
 body {
   background-image: url("https://lh3.googleusercontent.com/yUzKc3ZYO2GvgmbkM0xHN2CvMhQcQZfhjY-6ix9xUhT9eKzlOgENKgVxAu1vOfdL31UE7M45LKM=w640-h400-e365");
   min-height: 100%;
@@ -9,10 +14,13 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
+  font-family: 'Roboto Slab', serif;
 }
 
 h1 {
   margin: 20px;
+  font-family: 'Marck Script', cursive;
+  font-size: 4em;
 }
 
 div {

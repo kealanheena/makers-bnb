@@ -4,8 +4,10 @@ html {
 
 body {
   background-image: url("https://lh3.googleusercontent.com/yUzKc3ZYO2GvgmbkM0xHN2CvMhQcQZfhjY-6ix9xUhT9eKzlOgENKgVxAu1vOfdL31UE7M45LKM=w640-h400-e365");
-  background-position: center;
+  min-height: 100%;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   background-size: cover;
 }
 
@@ -64,11 +66,6 @@ li a:hover {
   cursor: pointer;
   display: inline-block;
 }
-
-/* .navbar {
-  opacity: 50%;
-  border-radius: 0px;
-} */
 
 .listing {
   list-style-type: none;

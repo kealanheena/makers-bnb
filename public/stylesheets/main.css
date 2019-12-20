@@ -17,6 +17,10 @@ body {
   font-family: 'Roboto Slab', serif;
 }
 
+#emailHelp {
+  color: black;
+}
+
 h1 {
   margin: 20px;
   font-family: 'Marck Script', cursive;

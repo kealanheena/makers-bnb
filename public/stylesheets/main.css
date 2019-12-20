@@ -103,6 +103,9 @@ li a:hover {
   color: black;
 }
 
+.request-link:hover {
+  color: rgb(40, 100, 250);
+}
 .request-box {
   margin-left: 15%;
 }

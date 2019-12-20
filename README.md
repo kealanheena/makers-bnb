@@ -114,9 +114,9 @@ I want the booking to be available until I confirm a booking request
 
 | id | rental_id | client_id | date | created_at | status(default: pending) |
 | --- | ----- | ------ | ------- | ------ | ------ |
-| 1 | 1 | 1 | 2019-12-24 00:00:00.000000 | 2019-12-08 21:02:55.919516 | pending |
-| 2 | 2 | 3 | 2020-02-19 00:00:00.000000 | 2019-12-08 21:02:55.919516 | approved |
-| 3 | 2 | 2 | 2020-08-01 00:00:00.000000 | 2019-12-08 21:02:55.919516 | rejected |
+| 1 | 1 | 1 | 2019-12-24 | 2019-12-08 21:02:55.919516 | pending |
+| 2 | 2 | 3 | 2020-02-19 | 2019-12-08 21:02:55.919516 | approved |
+| 3 | 2 | 2 | 2020-08-01 | 2019-12-08 21:02:55.919516 | rejected |
 
 
 ## Features  
@@ -124,16 +124,20 @@ I want the booking to be available until I confirm a booking request
 - Log in
 - Log out
 - Add rental
-- Book rental (by date)
+- Book rental for one night (by date)
 - See bookings you've made
-- See booking you've received
+- See bookings you've received
 - Approve received bookings
 - Reject received bookings
+- Visual confirmation of booking status on requests page
 
 ## Code style
 - OOD
 - TDD
 - BDD
+- Pairing
+- Mobbing
+- XP
 
 ## Tech used
 - Ruby  
@@ -141,6 +145,9 @@ I want the booking to be available until I confirm a booking request
 - Sinatra  
 - Capybara  
 - PostgreSQL  
+- Bootstrap
+- CSS
+- ERB
 
 ## Getting started
 
@@ -169,7 +176,75 @@ You can run tests by running ```rspec``` in the terminal in the makers-bnb direc
 
 ### Test coverage  
 #### Feature tests
+
+- Rentals list
+  - should see a list of rentals without being logged in
+  - should see a list of rentals if logged in
+
+- Sign up
+  - a new user can sign up
+  - a message appears if email already has an account
+  - a message appears if username is already taken
+
+- Log in
+  - an existing user can log in
+  - if email is incorrect, an error message is displayed
+  - if password is incorrect, an error message is displayed
+
+- Log out
+  - an existing user can log out
+
+- Add rental
+  - should add a rental to the listings
+
+- Booking
+  - can book a rental
+
+- Checking dates
+  - it should show that a date is available
+  - it should show that a date is not available
+  - it should show a date is unavailable if booking confirmed for that date
+
+- Requests page
+  - shows a list of all bookings made by logged-in user
+  - shows a list of all requests made for the logged-in user's rentals
+
+- Approve or reject booking request
+  - user can approve a request for their rental property
+  - user can reject a request for their rental property
+
 #### Unit tests
+
+**User**
+- .sign_up
+  - can sign up and create a new user
+  - fails to sign up if email already has an account
+  - fails to sign up if username already has an account
+- .authenticate
+  - can log in an existing user
+  - fails to log in if user is not recognized
+     - fails if wrong email
+     - fails if wrong password
+
+**Rental**
+- .all
+  - should return an array of rental instances
+- .add
+  - should add a rental to the database
+- .rental_details
+  - should show the details of a rental
+- .check_date
+  - should return that date is available if it is
+  - should return that date is not available if it isn't
+
+**Booking**
+- .made
+  - displays all the bookings the user has made
+- .received
+  - displays all the bookings the user has received for their rental property
+- .update_status
+  - updates the booking status to Approved
+  - udpates the booking status to Rejected
 
 ## Versioning
 makers-bnb uses ruby version 2.6.5. To change ruby versions run

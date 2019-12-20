@@ -11,6 +11,7 @@
         <li>Total Price: £<%= Rental.rental_details(id: booking.rental_id).price %></li>
         <li>Date: <%= DateTime.parse(booking.date).strftime("%d %B %Y") %></li>
         <li>Owner: <%= User.user_details(id: Rental.rental_details(id: booking.rental_id).user_id).username %></li>
+        <li>Contact Details: <%=User.user_details(id: Rental.rental_details(id: booking.rental_id).user_id).email%></li>
         <li>Booking Status: <%= booking.status %></li>
       </div>
     <% end %>
@@ -33,6 +34,7 @@
           <li>Total Price: £<%= Rental.rental_details(id: booking.rental_id).price %></li>
           <li>Date: <%= DateTime.parse(booking.date).strftime("%d %B %Y") %></li>
           <li>Requested by: <%= User.user_details(id: booking.client_id).username %></li>
+          <li>Contact Details: <%=User.user_details(id: booking.client_id).email%></li>
           <li>Booking Status: <%= booking.status %></li>
         </div>
         </a>

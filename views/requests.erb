@@ -1,6 +1,5 @@
 <h1>Requests</h1>
 
-
 <div class='row request-box'>
 
     <div class='col-md-6 request-ul'>
@@ -22,7 +21,15 @@
     <% @bookings_received.each do |bookings| %>
       <% bookings.each do |booking| %>
         <div class='request-div'>
-          <li>Name: <%= Rental.rental_details(id: booking.rental_id).name %></li>
+          <li>Name: 
+            <% if booking.status == "Pending  " %>
+          <a href="/request/<%= booking.id %>">
+            <%= Rental.rental_details(id: booking.rental_id).name %>
+          </a>
+          <% else %>
+            <%= Rental.rental_details(id: booking.rental_id).name %>
+          <% end %>
+          </li>
           <li>Description: <%= Rental.rental_details(id: booking.rental_id).description %></li>
           <li>Total Price: £<%= Rental.rental_details(id: booking.rental_id).price %></li>
           <li>Date:</li>

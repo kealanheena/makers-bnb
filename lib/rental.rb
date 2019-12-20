@@ -32,6 +32,7 @@ class Rental
     user_id = result[0]["id"]
 
     description = description.gsub("'", "''")
+    name = name.gsub("'", "''")
 
     @connection.exec("INSERT INTO rentals(name, description, price, start_date, end_date, user_id)
       VALUES('#{name}', '#{description}', '#{price}', '#{starting}', '#{ending}', '#{user_id}');")

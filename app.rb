@@ -5,7 +5,7 @@ require './lib/booking.rb'
 
 class MakersBnB < Sinatra::Base
 
-  enable :sessions
+  enable :sessions  
 
   get "/" do
     @user = session[:user]
@@ -74,7 +74,7 @@ class MakersBnB < Sinatra::Base
     @user = session[:user]
     @rental = Rental.rental_details(id: params[:id])
     @date_available = session[:check_date]
-    session[:date] = nil
+    session[:check_date] = nil
     erb :rental
   end
 
@@ -102,14 +102,14 @@ class MakersBnB < Sinatra::Base
     erb :requests
   end
 
-  get '/request/:id' do
-    @rental = Rental.rental_details(id: params[:id])
-    @booking_id = params[:id]
+  get '/request/:rental_id/:booking_id' do
+    @rental = Rental.rental_details(id: params[:rental_id])
+    @booking_id = params[:booking_id]
     erb :request_page
   end
 
-  post '/request/:id' do
-    Booking.update_status(id: params[:id], status: params[:status])
+  post '/request/:booking_id/:rental_id' do
+    Booking.update_status(id: params[:booking_id], status: params[:status], rental_id: params[:rental_id])
     redirect '/requests'
   end
 

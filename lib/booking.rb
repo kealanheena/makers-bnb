@@ -58,11 +58,9 @@ class Booking
     }
   end
 
-  def self.update_status(id:, status:)
+  def self.update_status(id:, status:, rental_id:)
     database_selector
-
-    result = @connection.exec("UPDATE bookings SET status = '#{status}' WHERE id = '#{id}'
-      RETURNING status;")
+    result = @connection.exec("UPDATE bookings SET status = '#{status}' WHERE id = '#{id}' AND rental_id='#{rental_id}';")
   end
 
   def self.database_selector

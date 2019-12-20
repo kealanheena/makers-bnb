@@ -103,8 +103,16 @@ li a:hover {
   color: black;
 }
 
+.request-link {
+  color: darkblue;
+}
+
 .request-link:hover {
-  color: rgb(40, 100, 250);
+  color: black;
+}
+
+.request-link-box:hover {
+  box-shadow: 10px 10px 10px black;
 }
 .request-box {
   margin-left: 15%;

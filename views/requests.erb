@@ -20,10 +20,14 @@
       <h2>Requests I've received</h2>
     <% @bookings_received.each do |bookings| %>
       <% bookings.each do |booking| %>
-        <% if booking.status == "Pending  " %>
-        <a href="/request/<%= booking.id %>/<%= booking.rental_id %>" class='request-link'>
-        <% end %>
-        <div class='request-div'>
+        
+        
+          <% if booking.status == "Pending  " %>
+          <div class='request-div request-link-box'>
+          <a href="/request/<%= booking.id %>/<%= booking.rental_id %>" class='request-link'>
+          <% else %>
+          <div class='request-div'>
+          <% end %>
           <li><h3>
             
           

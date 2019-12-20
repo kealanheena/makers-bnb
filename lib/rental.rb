@@ -49,7 +49,7 @@ class Rental
     rental = rental_details(id: id)
     parsed_date = DateTime.parse(date)
 
-    result = @connection.exec("SELECT id FROM bookings WHERE date='#{date}' AND status='Approved'")
+    result = @connection.exec("SELECT id FROM bookings WHERE date='#{date}' AND status='Approved' AND rental_id='#{rental.id}'")
     
     if (parsed_date.between?(rental.starting, rental.ending)) && (result.ntuples == 0) 
       "Date available!" 

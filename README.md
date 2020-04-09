@@ -2,6 +2,8 @@
 
 This is the first Makers team project, working together to build an AirBnB clone. Helping us develop teamwork, project management and technical skills.
 
+<img src="./img/makers-bnb-collage.png">
+
 ## Table of contents
 - [User Stories](#user-stories)
 - [Domain Modelling](#domain-modelling)

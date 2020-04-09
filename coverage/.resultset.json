@@ -1,11 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-<<<<<<< HEAD
-      "/Users/kealanheena/Projects/onsiteCourse/makers-bnb/spec/booking_spec.rb": [
-=======
       "/Users/jbero/Projects/Week6/makers-bnb/spec/booking_spec.rb": [
->>>>>>> 52402231c0373ca2a818a98d7b024a15d76233ed
         1,
         null,
         1,
@@ -17,69 +13,30 @@
         4,
         4,
         4,
-<<<<<<< HEAD
-        0,
-=======
         4,
->>>>>>> 52402231c0373ca2a818a98d7b024a15d76233ed
         null,
         null,
         1,
         1,
-<<<<<<< HEAD
-        0,
-        0,
-        0,
-        0,
-=======
         1,
         1,
         1,
         1,
->>>>>>> 52402231c0373ca2a818a98d7b024a15d76233ed
         null,
         null,
         null,
         1,
         1,
-<<<<<<< HEAD
-        0,
-        0,
-        0,
-        0,
-=======
         1,
         1,
         1,
         1,
->>>>>>> 52402231c0373ca2a818a98d7b024a15d76233ed
         null,
         null,
         null,
         1,
         null,
         1,
-<<<<<<< HEAD
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        null,
-        null,
-        1,
-        0,
-        null,
-        0,
-        null,
-        null,
-        1,
-        0,
-        null,
-        0,
-=======
         2,
         2,
         2,
@@ -99,17 +56,12 @@
         1,
         null,
         1,
->>>>>>> 52402231c0373ca2a818a98d7b024a15d76233ed
         null,
         null,
         null,
         null
       ],
-<<<<<<< HEAD
-      "/Users/kealanheena/Projects/onsiteCourse/makers-bnb/spec/features/add_rental_spec.rb": [
-=======
       "/Users/jbero/Projects/Week6/makers-bnb/spec/features/add_rental_spec.rb": [
->>>>>>> 52402231c0373ca2a818a98d7b024a15d76233ed
         1,
         null,
         1,
@@ -122,11 +74,7 @@
         null,
         null
       ],
-<<<<<<< HEAD
-      "/Users/kealanheena/Projects/onsiteCourse/makers-bnb/spec/features/approve_or_reject_booking_spec.rb": [
-=======
       "/Users/jbero/Projects/Week6/makers-bnb/spec/features/approve_or_reject_booking_spec.rb": [
->>>>>>> 52402231c0373ca2a818a98d7b024a15d76233ed
         1,
         null,
         1,
@@ -140,32 +88,6 @@
         2,
         2,
         null,
-<<<<<<< HEAD
-        0,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        null
-      ],
-      "/Users/kealanheena/Projects/onsiteCourse/makers-bnb/spec/features/book_rental_spec.rb": [
-=======
         2,
         2,
         null,
@@ -190,7 +112,6 @@
         null
       ],
       "/Users/jbero/Projects/Week6/makers-bnb/spec/features/book_rental_spec.rb": [
->>>>>>> 52402231c0373ca2a818a98d7b024a15d76233ed
         1,
         null,
         1,
@@ -204,19 +125,11 @@
         1,
         1,
         null,
-<<<<<<< HEAD
-        0,
-        null,
-        null
-      ],
-      "/Users/kealanheena/Projects/onsiteCourse/makers-bnb/spec/features/check_dates_spec.rb": [
-=======
         1,
         null,
         null
       ],
       "/Users/jbero/Projects/Week6/makers-bnb/spec/features/check_dates_spec.rb": [
->>>>>>> 52402231c0373ca2a818a98d7b024a15d76233ed
         1,
         null,
         1,
@@ -245,16 +158,6 @@
         1,
         1,
         1,
-<<<<<<< HEAD
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-=======
         1,
         1,
         1,
@@ -263,16 +166,11 @@
         1,
         1,
         1,
->>>>>>> 52402231c0373ca2a818a98d7b024a15d76233ed
         null,
         null,
         null
       ],
-<<<<<<< HEAD
-      "/Users/kealanheena/Projects/onsiteCourse/makers-bnb/spec/features/log_in_spec.rb": [
-=======
       "/Users/jbero/Projects/Week6/makers-bnb/spec/features/log_in_spec.rb": [
->>>>>>> 52402231c0373ca2a818a98d7b024a15d76233ed
         1,
         1,
         null,
@@ -306,11 +204,7 @@
         null,
         null
       ],
-<<<<<<< HEAD
-      "/Users/kealanheena/Projects/onsiteCourse/makers-bnb/spec/features/log_out_spec.rb": [
-=======
       "/Users/jbero/Projects/Week6/makers-bnb/spec/features/log_out_spec.rb": [
->>>>>>> 52402231c0373ca2a818a98d7b024a15d76233ed
         1,
         1,
         1,
@@ -325,11 +219,7 @@
         null,
         null
       ],
-<<<<<<< HEAD
-      "/Users/kealanheena/Projects/onsiteCourse/makers-bnb/spec/features/request_page_spec.rb": [
-=======
       "/Users/jbero/Projects/Week6/makers-bnb/spec/features/request_page_spec.rb": [
->>>>>>> 52402231c0373ca2a818a98d7b024a15d76233ed
         1,
         null,
         1,
@@ -343,66 +233,15 @@
         2,
         2,
         null,
-<<<<<<< HEAD
-        0,
-        0,
-        0,
-        0,
-        0,
-=======
         2,
         2,
         2,
         2,
         2,
->>>>>>> 52402231c0373ca2a818a98d7b024a15d76233ed
         null,
         null,
         null,
         1,
-<<<<<<< HEAD
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null
-      ],
-      "/Users/kealanheena/Projects/onsiteCourse/makers-bnb/spec/features/see_rentals_spec.rb": [
-=======
         1,
         1,
         null,
@@ -449,7 +288,6 @@
         1,
         1,
         1,
->>>>>>> 52402231c0373ca2a818a98d7b024a15d76233ed
         1,
         null,
         1,
@@ -475,11 +313,7 @@
         null,
         null
       ],
-<<<<<<< HEAD
-      "/Users/kealanheena/Projects/onsiteCourse/makers-bnb/spec/features/sign_up_spec.rb": [
-=======
       "/Users/jbero/Projects/Week6/makers-bnb/spec/features/sign_up_spec.rb": [
->>>>>>> 52402231c0373ca2a818a98d7b024a15d76233ed
         1,
         1,
         1,
@@ -514,11 +348,7 @@
         null,
         null
       ],
-<<<<<<< HEAD
-      "/Users/kealanheena/Projects/onsiteCourse/makers-bnb/spec/rental_spec.rb": [
-=======
       "/Users/jbero/Projects/Week6/makers-bnb/spec/rental_spec.rb": [
->>>>>>> 52402231c0373ca2a818a98d7b024a15d76233ed
         1,
         1,
         null,
@@ -566,21 +396,13 @@
         null,
         null
       ],
-<<<<<<< HEAD
-      "/Users/kealanheena/Projects/onsiteCourse/makers-bnb/spec/user_spec.rb": [
-=======
       "/Users/jbero/Projects/Week6/makers-bnb/spec/user_spec.rb": [
->>>>>>> 52402231c0373ca2a818a98d7b024a15d76233ed
         1,
         null,
         1,
         null,
         1,
-<<<<<<< HEAD
-        5,
-=======
         6,
->>>>>>> 52402231c0373ca2a818a98d7b024a15d76233ed
         null,
         null,
         1,
@@ -611,15 +433,6 @@
         null,
         1,
         1,
-<<<<<<< HEAD
-        0,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
-=======
         1,
         1,
         null,
@@ -627,17 +440,12 @@
         1,
         1,
         1,
->>>>>>> 52402231c0373ca2a818a98d7b024a15d76233ed
         null,
         null,
         null,
         null
       ]
     },
-<<<<<<< HEAD
-    "timestamp": 1576852705
-=======
     "timestamp": 1576854669
->>>>>>> 52402231c0373ca2a818a98d7b024a15d76233ed
   }
 }

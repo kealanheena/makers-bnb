@@ -1,11 +1,16 @@
 feature "rentals list" do
 
-  scenario "should see a list of rentals" do
+  scenario "should see a list of rentals without being logged in" do
+    sign_up_test
+    add_rental_feature
+    click_button "Log Out"
+
     visit '/'
     expect(page).to have_content "Makers BnB"
+    expect(page).to have_content "Place 1"
   end
 
-  scenario "should see a list of rentals" do
+  scenario "should see a list of rentals if logged in" do
     sign_up_test
     add_rental_feature
 
